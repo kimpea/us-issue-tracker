@@ -14,3 +14,14 @@ General User Stories:
  - As a user type, I would like to be able to see a bug or feature's current status.
  - As a user type, I would like to be able to write comments on bugs and features.
  - As a user type, I would like to be able to visually see what progress has been made for reported bugs and requested features.
+
+Real Life User Stories:
+
+ - User 1: I'd like my username to be 'USER1' and would also like to have my own password when logging in.
+ - User 2: I would like to be able to report a gameplay bug for Unicorn Simulator.
+ - User 3: I would like to request a new gameplay feature to the developers.
+ - User 4: I would like to upvote a bug which someone else has reported.
+ - User 5: I would love to upvote a feature and donate some money to the developers to help them develop this feature.
+ - User 6: I would like to see what bugs and features are being developed or have been completed.
+ - User 7: I would like to comment on other users' reports and see if I also have the same issues as them.
+ - User 8: Being able to visually see the progress made over certain periods of time would be a great advantage for this application.
