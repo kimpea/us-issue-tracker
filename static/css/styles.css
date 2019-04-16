@@ -30,6 +30,22 @@ nav i {
   height: auto;
 }
 
+/*-- Jumbotron Styles --*/
+
+.welcome-jumbotron {
+  margin-top: 5rem !important;
+}
+
+.jumbotron {
+  width: 80% !important;
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 90px;
+  padding: 40px;
+  background-color: #fafafa;
+}
+
+
 /*-- Footer Styles --*/
 
 footer {
