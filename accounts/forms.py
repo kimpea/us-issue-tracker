@@ -36,3 +36,8 @@ class UserRegistrationForm(UserCreationForm):
             raise ValidationError("Passwords must match")
             
         return password2
+    
+    def __init__(self, *args, **kwargs):
+    # Make Email Field Required
+        super(UserRegistrationForm, self).__init__(*args, **kwargs)
+        self.fields['email'].required = True
