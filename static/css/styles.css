@@ -13,3 +13,64 @@ body {
   min-height: 100%;
   background-color: #7c7a7a;
 }
+
+/*-- Navigation --*/
+
+.navbar {
+  background-color: #000;
+}
+
+nav i {
+  padding-right: 5px;
+  color: #fafafa;
+}
+
+.navbar-brand img {
+  max-width: 50px;
+  height: auto;
+}
+
+/*-- Footer Styles --*/
+
+footer {
+  width: 100%;
+  min-height: 80px;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+}
+
+.quick-links {
+  margin-top: 10px;
+}
+
+.quick-links a {
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #fafafa;
+}
+
+.social-links {
+  margin-top: 5px;
+}
+
+i {
+  color: #fafafa;
+}
+
+.social {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#copyright {
+  color: #fafafa;
+  margin-top: 5px;
+}
+
+.github {
+  margin-left: 10px
+}
