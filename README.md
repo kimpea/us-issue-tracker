@@ -28,7 +28,7 @@ Real Life User Stories:
 
 Wireframes:
 
- - Wireframes have been created using Wireframe.cc. These can be viewed in /documentation/wireframes.
+ - Wireframes have been created using Wireframe.cc. These can be viewed in [/documentation/wireframes](/documentation/wireframes/).
 
 ## Features
 
