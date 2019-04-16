@@ -34,10 +34,25 @@ def bug_detail(request, id):
     """
     bug = get_object_or_404(Bug, id=id)
     upvotes = bug.upvotes
-        
+    
+    # Pagination for comments
+    comments = BugComments.objects.filter(bug=id).order_by('date_created')
+    comments_count = comments.count()
+    comment_form = BugCommentForm()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(comments, 5)
+    try:
+        comments = paginator.page(page)
+    except PageNotAnInteger:
+        comments = paginator.page(1)
+    except EmptyPage:
+        comments = paginator.page(paginator.num_pages)
     return render(request, "bug_detail.html", {
         'bug': bug,
-        'upvotes': upvotes
+        'upvotes': upvotes,
+        'comment_form': comment_form, 
+        'comments': comments,
+        'comments_count': comments_count,
     })
     
 @login_required   
