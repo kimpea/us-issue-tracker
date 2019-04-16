@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load bootstrap_tags %}
+
+{% block page_title %}{{bug.name}}{% endblock %} 
+
+{% block content %}
+<div class="jumbotron detail-jumbotron">
+    
+    <!-- Bug Details -->
+    <div class="bug-intro">
+       <h3><strong>Bug: 
+        {% if bug.status == 'OPEN' %}
+        <span class="badge badge-danger">OPEN</span>
+        {% elif bug.status == 'IN PROGRESS' %}
+        <span class="badge badge-warning">IN PROGRESS</span>
+        {% elif bug.status == 'FIXED' %}
+        <span class="badge badge-success">FIXED</span>
+        {% endif %}
+        {{ bug.name }}</strong></h3> 
+    </div>
+    
+    <p class="text-muted">Posted {{ bug.date_created }} by {{ bug.user }}</p>
+    <p class="lead"><strong>Description:</strong> {{ bug.description }}</p>
+    <p class="lead"><strong>Upvotes:</strong> {{ bug.upvotes }}</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{% url 'bugs' %}" role="button">Return to Reported Bugs<i class="fas fa-bug"></i></a>
+    </p>
+    <p class="lead">
+        {% if user.is_authenticated %}
+        {% else %}
+        <p><a href="{% url 'login' %}">Sign in</a> or <a href="{% url 'register' %}">create an account</a> to report bugs, comment or upvote. </p>
+        {% endif %}
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% load bootstrap_tags %}
+{% block page_title %}Bugs{% endblock %} 
+
+{% block content %}
+
+<div class="jumbotron bugs-jumbotron">
+    
+    <!-- Introduction -->
+    <div class="bug-intro">
+        <h2 class="display-4">Reported Bugs</h2>
+        <p class="lead">This list contains reported gameplay bugs.</p>
+        <p class="lead">There are currently three different categories of bugs that are on this list: <strong>open, in progress</strong> and <strong>fixed</strong>.</p>
+        <p class="lead">Bugs categorised as <strong>"open"</strong> are yet to be looked into - the more upvotes there are on a bug report, the higher the chance of it being fixed by a developer.
+        <strong>"In progress"</strong> bugs are currently being seen to by developers. <strong>"Fixed"</strong> bugs are just that - fixed!</p>
+        {% if user.is_authenticated %}
+        <a href="{% url 'report_bug' %}" class="add-bug btn btn-primary">Report a bug<i class="fas fa-bug"></i></a> 
+        {% else %}
+        <p><a href="{% url 'login' %}">Sign in</a> or <a href="{% url 'register' %}">create an account</a> to report bugs, comment or upvote. </p>
+        {% endif %}
+    </div>
+    
+    <br>
+    
+    <!-- Bugs Table -->
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col"><i class="fas fa-bug"></i>Bug Name</th>
+                <th scope="col" class="d-none d-lg-table-cell"><i class="fas fa-thumbs-up"></i>Upvotes</th>
+                <th scope="col" class="d-none d-lg-table-cell"><i class="fas fa-clock"></i>Date posted</th>
+                <th scope="col"><i class="fas fa-tasks"></i>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bug in bugs %}
+            <tr class="table-active">
+                <th scope="row"><a href="{% url 'bug_detail' bug.id %}">{{ bug.name|truncatechars:50 }}</a></th>
+                <td class="d-none d-lg-table-cell">{{ bug.upvotes }}</td>
+                <td class="d-none d-lg-table-cell">{{ bug.date_created }}</td>
+                {% if bug.status == 'FIXED' %}
+                <td><span class="badge badge-success">FIXED</span></td>
+                {% elif bug.status == 'IN PROGRESS' %}
+                <td><span class="badge badge-warning">IN PROGRESS</span></td>
+                {% elif bug.status == 'OPEN' %}
+                <td><span class="badge badge-danger">OPEN</span></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    {% if bugs.has_other_pages %}
+    <ul class="pagination justify-content-center">
+        {% if bugs.has_previous %}
+        <li><a href="?page={{ bugs.previous_page_number }}"><i class="fas fa-chevron-left"></i></a></li>
+        {% else %}
+        <li class="disabled"><i class="fas fa-chevron-left"></i></li>
+        {% endif %} 
+        {% for i in bugs.paginator.page_range %} 
+            {% if bugs.number == i %}
+            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span>
+            </li>
+            {% else %}
+            <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %} 
+        {% endfor %} 
+        {% if bugs.has_next %}
+        <li><a href="?page={{ bugs.next_page_number }}"><i class="fas fa-chevron-right"></i></a></li>
+        {% else %}
+        <li class="disabled"><i class="fas fa-chevron-right"></i></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+
+</div>
+
+{% endblock %}

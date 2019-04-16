@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load bootstrap_tags %}
+
+{% block page_title %}Report Bug{% endblock %} 
+
+{% block content %}
+
+<div class="jumbotron">
+    <!-- Report Bug Form -->
+    <form method="POST">
+        <legend>Report A Bug</legend>
+        <p>Reporting a bug here on Unicorn Simulator's Issue Tracker is <strong>free</strong>. Once the bug has been reported, other users are free to upvote it - the most upvoted bugs will take the highest priority in fixing.</p>
+        <p>You can <strong>keep up to date</strong> with the development processes on reported bugs by <strong><a href="{% url 'index' %}">subscribing to our newsletter</a></strong>, or simply by checking in with the <strong><a href="{% url 'bugs' %}">Reported Bugs</a></strong> tab.</p>
+        <p>Please be as detailed as possible when describing the bug - if we require any more information, we will not hesitate to contact you.</p>
+        {% csrf_token %} 
+        {{ form|as_bootstrap }}
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Submit Report</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
