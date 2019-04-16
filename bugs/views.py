@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Bug
-from .forms import ReportBugForm
+from .models import Bug, BugComments
+from .forms import ReportBugForm, BugCommentForm
 import datetime
 
 # Create your views here.
@@ -52,6 +52,18 @@ def upvote_bug(request, id):
     bug.upvotes += 1
     bug.save()
     return redirect('bug_detail', id)
+    
+@login_required
+def bug_comment(request, id=id):
+    """ Saves a posted comment """
+    bug = get_object_or_404(Bug, id=id)
+    comment_form = BugCommentForm(request.POST, request.FILES)
+    if comment_form.is_valid():
+        instance = comment_form.save(commit=False)
+        instance.user = request.user
+        instance.bug = bug
+        comment_form.save()
+    return redirect(bug_detail, id)
     
 @login_required
 def report_bug(request, id=None):
