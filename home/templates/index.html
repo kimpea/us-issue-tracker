@@ -1,7 +1,14 @@
-{% extends 'base.html' %} 
-
-{% block page_title %}Home Page{% endblock %} 
+{% extends 'base.html' %}
 
 {% block content %}
-
+<div class="jumbotron text-center welcome-jumbotron">
+    <h1 class="display-4">Unicorn Simulator Issue Tracker</h1>
+    <p class="lead">Welcome to the official issue tracker for Unicorn Simulator - a community-driven hub allowing you to report bugs and request features for Unicorn Simulator</p>
+    <p class="lead">
+        {% if user.is_authenticated %} 
+        {% else %}
+        <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Get started</a> 
+        {% endif %}
+    </p>
+</div>
 {% endblock %}
