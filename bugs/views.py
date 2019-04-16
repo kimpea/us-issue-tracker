@@ -40,6 +40,16 @@ def bug_detail(request, id):
         'upvotes': upvotes
     })
     
+@login_required   
+def upvote_bug(request, id):
+    """
+    Function which allows user to upvote a bug
+    """
+    bug = get_object_or_404(Bug, id=id)
+    bug.upvotes += 1
+    bug.save()
+    return redirect('bug_detail', id)
+    
 @login_required
 def report_bug(request, id=None):
     """
