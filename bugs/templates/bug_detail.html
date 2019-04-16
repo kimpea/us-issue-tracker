@@ -24,6 +24,13 @@
     <p class="lead"><strong>Description:</strong> {{ bug.description }}</p>
     <p class="lead"><strong>Upvotes:</strong> {{ bug.upvotes }}</p>
     <p class="lead">
+        {% if user.is_authenticated and bug.status != 'FIXED'%}
+        <a class="btn btn-primary btn-lg" href="{% url 'upvote_bug' bug.id %}" role="button">Upvote<i class="fas fa-thumbs-up"></i></a>
+        {% elif user.is_authenticated and bug.status == 'FIXED' %}
+        <h3><span class="badge badge-success">FIXED</span></h3>
+        {% elif bug.status == 'FIXED' %}
+        <h3><span class="badge badge-success">FIXED</span></h3>
+        {% endif %}
         <a class="btn btn-primary btn-lg" href="{% url 'bugs' %}" role="button">Return to Reported Bugs<i class="fas fa-bug"></i></a>
     </p>
     <p class="lead">
