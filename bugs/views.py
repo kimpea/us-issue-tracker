@@ -45,6 +45,9 @@ def upvote_bug(request, id):
     """
     Function which allows user to upvote a bug
     """
+    # NOTE - a user is currently able to upvote a bug
+    # as many times as they wish.
+    # This may be fixed in future builds.
     bug = get_object_or_404(Bug, id=id)
     bug.upvotes += 1
     bug.save()
