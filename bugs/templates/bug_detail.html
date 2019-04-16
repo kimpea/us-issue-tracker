@@ -45,19 +45,20 @@
     
     <!-- Comments -->
     {% if comments_count == 0 %}
+    <h4><strong>Comments (0)</strong></h4>
     <p class="lead">No comments</p>
     {% else %}
     <h4><strong>Comments ( {{ comments_count }} )</strong></h4>
     <hr>
-    {% for comment in comments %}
-    <div class="inline">
-        <div>
-            <p class='description'>{{comment.comment}}</p>
-            <p class="text-muted">Posted by <strong>{{comment.user}}</strong> on {{comment.date_created}}</p>
+        {% for comment in comments %}
+        <div class="inline">
+            <div>
+                <p class='description'>{{comment.comment}}</p>
+                <p class="text-muted">Posted by <strong>{{comment.user}}</strong> on {{comment.date_created}}</p>
+            </div>
         </div>
-    </div>
-    <hr>
-    {% endfor %}
+        <hr>
+        {% endfor %}
     
     {% endif %}
     
