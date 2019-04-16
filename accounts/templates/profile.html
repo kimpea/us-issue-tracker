@@ -5,5 +5,13 @@
 {% block page_heading %} {{ user }}'s Profile {% endblock %}
 
 {% block content %}
-<p>{{ profile.email }}</p>
+
+<div class="jumbotron profile-jumbotron">
+    <!-- User Summary -->
+    <h3><strong>Your Profile</strong></h3>
+    <p class="lead"><strong>Username:</strong> {{user.username}}</p>
+    <p class="lead"><strong>Email:</strong> {{user.email}}</p>
+</div>
+
+
 {% endblock %}
