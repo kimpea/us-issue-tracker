@@ -4,3 +4,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.models import User
 
 # Create your views here.
+# Create your views here.
+def index(request):
+    """ A view that renders the index page """
+    return render(request, "index.html")
