@@ -29,3 +29,13 @@ Real Life User Stories:
 Wireframes:
 
  - Wireframes have been created using Wireframe.cc. These can be viewed in /documentation/wireframes.
+
+## Features
+
+ - Login/Register form - this will allow the user to either log into an existing account or create a new account, inserting them into the database.
+ - Report bug form - this will allow the user to report a bug, inserting this report into the database.
+ - Request feature form - this will allow the user to request a new feature, inserting the form data into the database.
+ - Upvote bug - this will allow the user to upvote a reported bug which is in need of attention.
+ - Upvote feature (for price of £20 per upvote) - this will allow the user to upvote a requested feature whilst donating £20 towards the development process at the same time.
+ - Comment form - this will allow users to comment on reported bugs and requested features and involve them in the community.
+ - Log out - this will allow the user to log out of the current session.
