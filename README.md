@@ -25,3 +25,7 @@ Real Life User Stories:
  - User 6: I would like to see what bugs and features are being developed or have been completed.
  - User 7: I would like to comment on other users' reports and see if I also have the same issues as them.
  - User 8: Being able to visually see the progress made over certain periods of time would be a great advantage for this application.
+
+Wireframes:
+
+ - Wireframes have been created using Wireframe.cc. These can be viewed in /documentation/wireframes.
