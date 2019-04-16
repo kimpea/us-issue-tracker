@@ -40,4 +40,64 @@
         {% endif %}
     </p>
 </div>
+
+<div class="jumbotron">
+    
+    <!-- Comments -->
+    {% if comments_count == 0 %}
+    <p class="lead">No comments</p>
+    {% else %}
+    <h4><strong>Comments ( {{ comments_count }} )</strong></h4>
+    <hr>
+    {% for comment in comments %}
+    <div class="inline">
+        <div>
+            <p class='description'>{{comment.comment}}</p>
+            <p class="text-muted">Posted by <strong>{{comment.user}}</strong> on {{comment.date_created}}</p>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+    
+    {% endif %}
+    
+    <!-- Pagination -->
+    {% if comments.has_other_pages %}
+    <ul class="pagination justify-content-center">
+        {% if comments.has_previous %}
+        <li><a href="?page={{ comments.previous_page_number }}"><i class="fas fa-chevron-left"></i></a></li>
+        {% else %}
+        <li class="disabled"><i class="fas fa-chevron-left"></i></li>
+        {% endif %} 
+        {% for i in comments.paginator.page_range %} 
+            {% if comments.number == i %}
+            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span>
+            </li>
+            {% else %}
+            <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %} 
+        {% endfor %} 
+        {% if comments.has_next %}
+        <li><a href="?page={{ comments.next_page_number }}"><i class="fas fa-chevron-right"></i></a></li>
+        {% else %}
+        <li class="disabled"><i class="fas fa-chevron-right"></i></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+    
+    <!-- Comment Form -->
+    {% if user.is_authenticated %}
+    <form method="POST" action="{% url 'bug_comment' bug.id %}">
+        {% csrf_token %}
+        <h6>Leave a comment:</h6>
+        <textarea name="comment" cols="5" rows="4" class="form-control" required="" id="comment"></textarea>
+        <br>
+        <div class="form-actions">
+            <button class="btn btn-primary inline" type="submit">Post</button>
+        </div>
+    </form>
+    {% else %}
+    {% endif %}
+    
+</div>
 {% endblock %}
