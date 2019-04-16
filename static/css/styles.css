@@ -1,0 +1,15 @@
+/*-- HTML and Body --*/
+
+html {
+  height: 100%;
+  min-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  background-color: #7c7a7a;
+}
