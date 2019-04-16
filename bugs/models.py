@@ -18,3 +18,12 @@ class Bug(models.Model):
 
     def __str__(self):
         return self.name
+        
+class BugComments(models.Model):
+    bug = models.ForeignKey(Bug, null=True)
+    user = models.ForeignKey(User, null=None)
+    comment = models.TextField(blank=False)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.comment
