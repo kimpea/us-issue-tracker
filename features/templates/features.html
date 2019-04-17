@@ -16,7 +16,7 @@
         <p class="lead">Features categorised as <strong>"incomplete"</strong> are waiting to be upvoted so that a sufficient amount of funds can be put towards it's development.
         <strong>"In progress"</strong> features are currently being developed. <strong>"Complete"</strong> features are features that have been launched into the game.</p>
         {% if user.is_authenticated %}
-        <a href="#" class="add-bug btn btn-primary">Request a feature<i class="fas fa-lightbulb"></i></a> 
+        <a href="{% url 'request_feature' %}" class="add-bug btn btn-primary">Request a feature<i class="fas fa-lightbulb"></i></a> 
         {% else %}
         <p><a href="{% url 'login' %}">Sign in</a> or <a href="{% url 'register' %}">create an account</a> to request features, comment or upvote. </p>
         {% endif %}
