@@ -7,12 +7,22 @@
 {% block content %}
 <div class="jumbotron detail-jumbotron">
     <!-- Feature Details -->
-    <h3><strong>Feature: [{{ feature.status }}] {{ feature.name }}</strong></h3>
+    <div class="bug-intro">
+       <h3><strong>Feature: 
+        {% if feature.status == 'INCOMPLETE' %}
+        <span class="badge badge-danger">INCOMPLETE</span>
+        {% elif feature.status == 'IN PROGRESS' %}
+        <span class="badge badge-warning">IN PROGRESS</span>
+        {% elif feature.status == 'COMPLETE' %}
+        <span class="badge badge-success">COMPLETE</span>
+        {% endif %}
+        {{ feature.name }}</strong></h3> 
+    </div>
     <p class="text-muted">Posted {{ feature.date_created }} by {{ feature.user }}</p>
     <p class="lead"><strong>Description:</strong> {{ feature.description }}</p>
     <p class="lead"><strong>Upvotes:</strong> {{ feature.upvotes }}</p>
     <p class="lead">
-        {% if user.is_authenticated and feature.status == 'COMPLET'%}
+        {% if user.is_authenticated and feature.status == 'COMPLETE'%}
         <h3><span class="badge badge-success">COMPLETE</span></h3>
         {% elif feature.status == 'COMPLETE' %}
         <h3><span class="badge badge-success">COMPLETE</span></h3>
