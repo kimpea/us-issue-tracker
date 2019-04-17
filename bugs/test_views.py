@@ -42,3 +42,14 @@ class TestBugViews(TestCase):
         page = self.client.get('/bugs/bug_detail/1', follow=True)
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "bug_detail.html") 
+        
+    
+    def test_get_report_bug_page(self):
+        """
+        Testing report_bug view
+        """
+        user = User.objects.create_user('TestingUser', 'testing@test.com', 'testing123')
+        self.client.login(username='TestingUser', password='testing123')
+        page = self.client.get("/bugs/report_bug/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, 'report_bug.html')
