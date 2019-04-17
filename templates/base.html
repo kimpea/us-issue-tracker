@@ -25,6 +25,7 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="{% url 'index' %}"><i class="fas fa-home"></i>Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'bugs' %}"><i class="fas fa-bug"></i>Reported Bugs</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'features' %}"><i class="fas fa-lightbulb"></i>Requested Features</a></li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
