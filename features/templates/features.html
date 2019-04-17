@@ -37,7 +37,7 @@
         <tbody>
             {% for feature in features %}
             <tr class="table-active">
-                <th scope="row"><a href="#">{{ feature.name|truncatechars:50 }}</a></th>
+                <th scope="row"><a href="{% url 'feature_detail' feature.id %}">{{ feature.name|truncatechars:50 }}</a></th>
                 <td class="d-none d-lg-table-cell">{{ feature.upvotes }}</td>
                 <td class="d-none d-lg-table-cell">{{ feature.date_created }}</td>
                 {% if feature.status == 'COMPLETE' %}
