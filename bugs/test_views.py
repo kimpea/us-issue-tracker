@@ -20,3 +20,11 @@ class TestBugViews(TestCase):
                                             description='Bug Description',
                                             user=self.user)
         self.bug.save()
+        
+    def test_get_all_bugs(self):
+        """
+        Testing bugs view which displays all bugs 
+        """
+        page=self.client.get("/bugs/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "bugs.html")
