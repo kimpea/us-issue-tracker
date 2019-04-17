@@ -87,6 +87,6 @@ def request_feature(request, id=None):
             feature.save()
             return redirect(feature_detail, feature.id)
     else:
-        feature_form = RequestFeatureForm(instance=feature)
+        form = RequestFeatureForm(instance=feature)
         
     return render(request, 'request_feature.html', {'form': form})
