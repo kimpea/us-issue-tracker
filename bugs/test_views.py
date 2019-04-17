@@ -77,3 +77,23 @@ class TestBugViews(TestCase):
         self.assertEqual(bug.upvotes, 0)
         self.assertEqual(bug.status, 'OPEN')
         self.assertEqual(page.status_code, 302)
+        
+    
+    def test_create_a_new_bug_comment(self):
+        """
+        Testing if user can successfully submit a bug comment 
+        """
+        user = User.objects.create_user('TestingUser', 'testing@test.com', 'testing123')
+        self.client.login(username='TestingUser', password='testing123')
+        page = self.client.post('/bugs/bug_comment/{0}/'.format(self.bug.id),
+                                    {'bug': self.bug,
+                                     'user': self.user,
+                                     'date_created': timezone.now,
+                                     'comment': "This is a bug comment"})
+
+        comment = get_object_or_404(BugComments, pk=1)
+
+        self.assertEqual(str(comment.bug), "Bug Name")
+        self.assertEqual(str(comment.user), "TestingUser")
+        self.assertEqual(comment.comment, "This is a bug comment")
+        self.assertEqual(page.status_code, 302)
