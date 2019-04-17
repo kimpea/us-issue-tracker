@@ -69,3 +69,24 @@ def feature_comment(request, id=id):
         comment.feature = feature
         comment_form.save()
     return redirect(feature_detail, id)
+    
+    
+@login_required
+def request_feature(request, id=None):
+    """
+    A view which renders page for request_feature form. 
+    User must be logged in to access this page. 
+    """
+    feature = get_object_or_404(Feature, id=id) if id else None
+    
+    if request.method == "POST":
+        form = RequestFeatureForm(request.POST, request.FILES, instance=feature)
+        if form.is_valid():
+            feature = form.save(commit=False)
+            feature.user = request.user
+            feature.save()
+            return redirect(feature_detail, feature.id)
+    else:
+        feature_form = RequestFeatureForm(instance=feature)
+        
+    return render(request, 'request_feature.html', {'form': form})
