@@ -29,7 +29,7 @@
         <p>Total to pay</p>
         <p>£{{ total }}</p>
     </strong>
-    <a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Proceed to Checkout</a>
+    <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Proceed to Checkout</a>
 </div>
 
 {% endblock %}
