@@ -53,3 +53,27 @@ class TestBugViews(TestCase):
         page = self.client.get("/bugs/report_bug/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, 'report_bug.html')
+        
+        
+    def test_adding_a_new_bug_to_database(self):
+        """
+        Testing if bug is being added to database successfully
+        """
+        user = User.objects.create_user('TestingUser', 'testing@test.com', 'testing123')
+        self.client.login(username='TestingUser', password='testing123')
+        page = self.client.post('/bugs/report_bug/',
+                                    {'name': 'new bug title',
+                                     'description': 'this is a new description',
+                                     'user': self.user,
+                                     'date_created': timezone.now,
+                                     'upvotes': 0,
+                                     'status': 'INCOMPLETE',
+                                     'price': 20,
+                                    })
+        bug = get_object_or_404(Bug, pk=2)
+        self.assertEqual(bug.name, 'new bug title')
+        self.assertEqual(bug.description, 'this is a new description')
+        self.assertEqual(str(bug.user), 'TestingUser')
+        self.assertEqual(bug.upvotes, 0)
+        self.assertEqual(bug.status, 'OPEN')
+        self.assertEqual(page.status_code, 302)
