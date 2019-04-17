@@ -56,3 +56,16 @@ def feature_detail(request, id):
         'comments': comments,
         'comments_count': comments_count,
     })
+    
+    
+@login_required
+def feature_comment(request, id=id):
+    """Saves a posted comment  """
+    feature = get_object_or_404(Feature, id=id)
+    comment_form = FeatureCommentForm(request.POST, request.FILES)
+    if comment_form.is_valid():
+        comment = comment_form.save(commit=False)
+        comment.user = request.user
+        comment.feature = feature
+        comment_form.save()
+    return redirect(feature_detail, id)
