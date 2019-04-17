@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .forms import ReportBugForm
+from .forms import ReportBugForm, BugCommentForm
 
 class TestReportBugForm(TestCase):
 
@@ -16,3 +16,9 @@ class TestReportBugForm(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['description'], ['This field is required.'])
+        
+class TestBugCommentForm(TestCase):
+    
+    def test_bug_comment_form(self):
+        form = BugCommentForm({'comment': 'This is a comment'})
+        self.assertTrue(form.is_valid())
