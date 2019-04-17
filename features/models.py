@@ -15,6 +15,7 @@ class Feature(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     upvotes = models.IntegerField(default=0)
     status = models.CharField(choices=STATUS_CHOICES, default='INCOMPLETE', max_length=20)
+    price = models.DecimalField(max_digits=6, decimal_places=2, default=20)
 
     def __str__(self):
         return self.name
