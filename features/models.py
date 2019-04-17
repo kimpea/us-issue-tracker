@@ -18,3 +18,13 @@ class Feature(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class FeatureComments(models.Model):
+    feature = models.ForeignKey(Feature, null=True)
+    user = models.ForeignKey(User, null=None)
+    comment = models.TextField(blank=False)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.comment
