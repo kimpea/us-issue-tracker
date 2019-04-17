@@ -20,6 +20,7 @@ class TestBugViews(TestCase):
                                             description='Bug Description',
                                             user=self.user)
         self.bug.save()
+       
         
     def test_get_all_bugs(self):
         """
@@ -28,3 +29,16 @@ class TestBugViews(TestCase):
         page=self.client.get("/bugs/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "bugs.html")
+        
+        
+    def test_get_bug_detail_page(self):
+        """
+        Testing single bug detail view 
+        """
+        user = User.objects.create_user(username='USER1', password='testing123')
+        user.save()
+        bug = Bug(name='Bug', description='Testing', user=user, upvotes=0, status='INCOMPLETE')
+        bug.save()
+        page = self.client.get('/bugs/bug_detail/1', follow=True)
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "bug_detail.html") 
