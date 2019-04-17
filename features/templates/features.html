@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% load bootstrap_tags %}
+
+{% block page_title %}Features{% endblock %} 
+
+{% block content %}
+
+<div class="jumbotron features-jumbotron">
+    
+    <!-- Introduction -->
+    <div class="feature-intro">
+        <h2 class="display-4">Requested Features</h2>
+        <p class="lead">This list contains requested gameplay features.</p>
+        <p class="lead">There are currently three different categories of features that are on this list: <strong>incomplete, in progress</strong> and <strong>complete</strong>.</p>
+        <p class="lead">Features categorised as <strong>"incomplete"</strong> are waiting to be upvoted so that a sufficient amount of funds can be put towards it's development.
+        <strong>"In progress"</strong> features are currently being developed. <strong>"Complete"</strong> features are features that have been launched into the game.</p>
+        {% if user.is_authenticated %}
+        <a href="#" class="add-bug btn btn-primary">Request a feature<i class="fas fa-lightbulb"></i></a> 
+        {% else %}
+        <p><a href="{% url 'login' %}">Sign in</a> or <a href="{% url 'register' %}">create an account</a> to request features, comment or upvote. </p>
+        {% endif %}
+    </div>
+    
+    <br>
+    
+    <!-- Features Table -->
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col"><i class="fas fa-lightbulb"></i>Feature Name</th>
+                <th scope="col" class="d-none d-lg-table-cell"><i class="fas fa-thumbs-up"></i>Upvotes</th>
+                <th scope="col" class="d-none d-lg-table-cell"><i class="fas fa-clock"></i>Date posted</th>
+                <th scope="col"><i class="fas fa-tasks"></i>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feature in features %}
+            <tr class="table-active">
+                <th scope="row"><a href="#">{{ feature.name|truncatechars:50 }}</a></th>
+                <td class="d-none d-lg-table-cell">{{ feature.upvotes }}</td>
+                <td class="d-none d-lg-table-cell">{{ feature.date_created }}</td>
+                {% if feature.status == 'COMPLETE' %}
+                <td>
+                    <h6><span class="badge badge-success">COMPLETE</span></h6>
+                </td>
+                {% elif feature.status == 'IN PROGRESS' %}
+                <td>
+                    <h6><span class="badge badge-warning">IN PROGRESS</span></h6>
+                </td>
+                {% elif feature.status == 'INCOMPLETE' %}
+                <td>
+                    <h6><span class="badge badge-danger">INCOMPLETE</span></h6>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <!-- Pagination -->
+    {% if features.has_other_pages %}
+    <ul class="pagination justify-content-center">
+        {% if features.has_previous %}
+        <li><a href="?page={{ features.previous_page_number }}"><i class="fas fa-chevron-left"></i></a></li>
+        {% else %}
+        <li class="disabled"><i class="fas fa-chevron-left"></i></li>
+        {% endif %} 
+        {% for i in features.paginator.page_range %} 
+            {% if features.number == i %}
+            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span>
+            </li>
+            {% else %}
+            <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %} 
+        {% endfor %} 
+        {% if features.has_next %}
+        <li><a href="?page={{ features.next_page_number }}"><i class="fas fa-chevron-right"></i></a></li>
+        {% else %}
+        <li class="disabled"><i class="fas fa-chevron-right"></i></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+    
+</div>
+
+{% endblock %}
