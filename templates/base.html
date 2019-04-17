@@ -34,6 +34,13 @@
                 {% if user.is_authenticated %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'report_bug' %}"><i class="fas fa-edit"></i>Report A Bug</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'request_feature' %}"><i class="fas fa-edit"></i>Request New Feature</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i>Cart
+                        {% if feature_count > 0 %}
+                            <label class="badge badge-pill badge-success">{{ feature_count }}</label>
+                        {% endif %}
+                    </a>
+                </li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}"><i class="fas fa-user"></i>Profile</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 {% else %}
