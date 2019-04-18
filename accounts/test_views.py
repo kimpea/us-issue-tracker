@@ -34,3 +34,7 @@ class TestViews(TestCase):
         response = self.client.get("/accounts/login/", follow=True)
         self.assertRedirects(response, expected_url=reverse('index'),
         status_code=302, target_status_code=200, fetch_redirect_response=True)
+        
+    def test_login_page_when_logged_out(self):
+        page = self.client.get("/accounts/login/")
+        self.assertEqual(page.status_code, 200)
