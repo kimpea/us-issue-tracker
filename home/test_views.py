@@ -35,3 +35,12 @@ class TestHomeViews(TestCase):
         page=self.client.get("/faq/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "faq.html")
+        
+    
+    def test_get_stats_page(self):
+        """
+        Testing stats view
+        """
+        page=self.client.get("/stats/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "stats.html")
