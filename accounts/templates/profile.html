@@ -11,6 +11,38 @@
     <h3><strong>Your Profile</strong></h3>
     <p class="lead"><strong>Username:</strong> {{user.username}}</p>
     <p class="lead"><strong>Email:</strong> {{user.email}}</p>
+    
+    <!-- User's Reported Bugs -->
+    <h3><strong>Your Reported Bugs</strong></h3>
+    <a href="{% url 'report_bug' %}" class="add-bug btn btn-primary">Report a bug<i class="fas fa-bug"></i></a>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col"><i class="fas fa-bug"></i>Bug Name</th>
+                <th scope="col" class="d-none d-lg-table-cell"><i class="fas fa-thumbs-up"></i>Upvotes</th>
+                <th scope="col" class="d-none d-lg-table-cell"><i class="fas fa-clock"></i>Date posted</th>
+                <th scope="col"><i class="fas fa-tasks"></i>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bug in bugs %}
+            <tr class="table-active">
+                <th scope="row"><a href="{% url 'bug_detail' bug.id %}">{{ bug.name|truncatechars:50 }}</a></th>
+                <td class="d-none d-lg-table-cell">{{ bug.upvotes }}</td>
+                <td class="d-none d-lg-table-cell">{{ bug.date_created }}</td>
+                {% if bug.status == 'FIXED' %}
+                <td><span class="badge badge-success">FIXED</span></td>
+                {% elif bug.status == 'IN PROGRESS' %}
+                <td><span class="badge badge-warning">IN PROGRESS</span></td>
+                {% elif bug.status == 'OPEN' %}
+                <td><span class="badge badge-danger">OPEN</span></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    
 </div>
 
 
