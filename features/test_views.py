@@ -20,3 +20,12 @@ class TestFeatureViews(TestCase):
                                             description='Feature Description',
                                             user=self.user)
         self.feature.save()
+        
+        
+    def test_get_all_features(self):
+        """
+        Testing features view which displays all features 
+        """
+        page=self.client.get("/features/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "features.html")
