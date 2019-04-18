@@ -163,3 +163,30 @@ def FeaturesPieChart():
     # Displays data calculated from chart_total_feature
     chart = chart_total_feature(Feature)
     return chart
+    
+    
+def FeaturesDailyStatus():
+    """ 
+    Displays data calculated from chart_by_time_feature,
+    but within a daily period 
+    """
+    chart = chart_by_time_feature(Feature, 1)
+    return chart
+
+
+def FeaturesWeeklyStatus():
+    """ 
+    Displays data calculated from chart_by_time_feature,
+    but within a weekly period 
+    """
+    chart = chart_by_time_feature(Feature, 7)
+    return chart
+
+
+def FeaturesMonthlyStatus():
+    """ 
+    Displays data calculated from chart_by_time_feature,
+    but within a monthly period 
+    """
+    chart = chart_by_time_feature(Feature, 30)
+    return chart
