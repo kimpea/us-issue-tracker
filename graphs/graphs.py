@@ -72,3 +72,9 @@ def chart_by_time_bug(bug, days):
         p_chart.add('IN PROGRESS', status_progress)
         p_chart.add('FIXED', status_fixed)
         return p_chart.render()
+        
+        
+def BugsPieChart():
+    # Displays data calculated from chart_total_bug
+    chart = chart_total_bug(Bug)
+    return chart
