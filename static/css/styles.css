@@ -273,3 +273,16 @@ i {
     margin-top: 20px;
   }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation : portrait){
+  .jumbotron {
+    width: 100% !important;
+  }
+  
+  .bug-graphs .card {
+    width: 100% !important;
+  }
+  .service {
+    margin-top: 20px;
+  }
+}
