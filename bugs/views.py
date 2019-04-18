@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Bug, BugComments
 from .forms import ReportBugForm, BugCommentForm
-from graphs.graphs import BugsPieChart
+from graphs.graphs import BugsPieChart, BugsDailyStatus, BugsWeeklyStatus, BugsMonthlyStatus
 import datetime
 
 # Create your views here.
@@ -29,10 +29,16 @@ def bugs(request):
         
     # Display graphs
     chart_total_bug = BugsPieChart()
+    chart_bugs_daily = BugsDailyStatus()
+    chart_bugs_weekly = BugsWeeklyStatus()
+    chart_bugs_monthly = BugsMonthlyStatus()
     
     return render(request, "bugs.html", {
         "bugs": bugs,
         'chart_total_bug': chart_total_bug,
+        'chart_bugs_daily': chart_bugs_daily,
+        'chart_bugs_weekly': chart_bugs_weekly,
+        'chart_bugs_monthly': chart_bugs_monthly,
     })
 
 def bug_detail(request, id):
