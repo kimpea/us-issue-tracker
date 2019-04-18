@@ -12,3 +12,13 @@ class TestMakePaymentForm(TestCase):
                     'stripe_id': 'l'
         })
         self.assertTrue(form.is_valid())
+        
+    
+    def test_cannot_make_a_payment_without_required_values(self):
+        form = MakePaymentForm({
+                    'credit_card_number': '4242424242424242', 
+                    'cvv': '', 
+                    'expiry_month': 1,
+                    'expiry_year': 2020,
+        })
+        self.assertFalse(form.is_valid())
