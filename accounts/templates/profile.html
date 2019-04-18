@@ -31,11 +31,17 @@
                 <td class="d-none d-lg-table-cell">{{ bug.upvotes }}</td>
                 <td class="d-none d-lg-table-cell">{{ bug.date_created }}</td>
                 {% if bug.status == 'FIXED' %}
-                <td><span class="badge badge-success">FIXED</span></td>
+                <td>
+                    <h6><span class="badge badge-success">FIXED</span></h6>
+                </td>
                 {% elif bug.status == 'IN PROGRESS' %}
-                <td><span class="badge badge-warning">IN PROGRESS</span></td>
+                <td>
+                    <h6><span class="badge badge-warning">IN PROGRESS</span></h6>
+                </td>
                 {% elif bug.status == 'OPEN' %}
-                <td><span class="badge badge-danger">OPEN</span></td>
+                <td>
+                    <h6><span class="badge badge-danger">OPEN</span></h6>
+                </td>
                 {% endif %}
             </tr>
             {% endfor %}
