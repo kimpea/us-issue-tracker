@@ -93,12 +93,42 @@
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#feature_total">Total</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#feature_daily">Daily</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#feature_weekly">Weekly</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#feature_monthly">Monthly</a>
+                </li>
             </ul>
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade active show" id="feature_total">
                     <div class="feature-chart-container  margin-t-30 ">
                         <div class="chart ">
                             {{ chart_total_feature|safe }}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="feature_daily">
+                    <div class="feature-chart-container bug-chart margin-t-30">
+                        <div class="chart ">
+                            {{ chart_feature_daily|safe }}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="feature_weekly">
+                    <div class="feature-chart-container bug-chart margin-t-30">
+                        <div class="chart ">
+                            {{ chart_feature_weekly|safe }}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="feature_monthly">
+                    <div class="feature-chart-container bug-chart margin-t-30">
+                        <div class="chart ">
+                            {{ chart_feature_monthly|safe }}
                         </div>
                     </div>
                 </div>
