@@ -17,3 +17,10 @@ class TestViews(TestCase):
         page = self.client.get("/accounts/register/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed("registration.html")
+        
+    def test_registeration_page_when_logged_in(self):
+        user = User.objects.create_user(username='Testing', password='test123')
+        user.save()
+        self.client.login(username='Testing', password='test123')
+        page = self.client.get("/accounts/register/")
+        self.assertEqual(page.status_code, 302)
