@@ -59,7 +59,8 @@ nav i {
   font-weight: bold;
 }
 
-.bug-graphs .card {
+.bug-graphs .card,
+.feature-graphs .card {
   margin-bottom: 90px;
   border: none;
 }
