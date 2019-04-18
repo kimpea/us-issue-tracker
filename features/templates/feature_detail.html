@@ -22,6 +22,16 @@
     <p class="lead"><strong>Description:</strong> {{ feature.description }}</p>
     <p class="lead"><strong>Upvotes:</strong> {{ feature.upvotes }}</p>
     <p class="lead">
+        <p class="card-text">Upvote for £{{ feature.price }}</p>
+        <form method="post" action="{% url 'add_to_cart' feature.id %}">
+            {% csrf_token %}
+            <div class="form-inline">
+                <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                <button class="btn btn-success" type="submit">Add</button>
+            </div>
+        </form>
+    </p>
+    <p class="lead">
         {% if user.is_authenticated and feature.status == 'COMPLETE'%}
         <h3><span class="badge badge-success">COMPLETE</span></h3>
         {% elif feature.status == 'COMPLETE' %}
@@ -85,7 +95,7 @@
     <form method="POST" action="{% url 'feature_comment' feature.id %}">
         {% csrf_token %}
         <h6>Leave a comment:</h6>
-        <textarea name="comment" cols="5" rows="4" class="form-control" required="" id="comment"></textarea>
+        <textarea name="comment" cols="5" rows="4" class="form-control" id="comment"></textarea>
         <br>
         <div class="form-actions">
             <button class="btn btn-primary inline" type="submit">Post</button>
