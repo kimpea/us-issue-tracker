@@ -239,3 +239,19 @@ i {
     font-size: 8px;
   }
 }
+
+@media screen and (min-width: 320px) and (max-width: 740px) and (orientation : portrait){
+  .jumbotron {
+    width: 100% !important;
+  }
+  .bug-header {
+    font-size: 20px;
+  }
+
+  .bug-list ul li{
+    font-size: 18px;
+  }
+  .service {
+    margin-top: 20px;
+  }
+}
