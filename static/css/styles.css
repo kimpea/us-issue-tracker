@@ -45,6 +45,18 @@ nav i {
   background-color: #fafafa;
 }
 
+/*-- Special Styles --*/
+
+.btn-primary {
+  background-color: #CF5386;
+  border-color: #CF5386;
+}
+
+.btn-primary:hover {
+  background-color: #494949;
+  border-color: #494949;
+}
+
 
 /*-- Footer Styles --*/
 
