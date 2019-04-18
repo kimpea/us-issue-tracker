@@ -86,12 +86,42 @@
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#bug_total">Total</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#bug_daily">Daily</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#bug_weekly">Weekly</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#bug_monthly">Monthly</a>
+                </li>
             </ul>
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade active show" id="bug_total">
                     <div class="bug-chart-container  margin-t-30 ">
                         <div class="chart ">
                             {{ chart_total_bug|safe }}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="bug_daily">
+                    <div class="bug-chart-container bug-chart margin-t-30">
+                        <div class="chart ">
+                            {{ chart_bugs_daily|safe }}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="bug_weekly">
+                    <div class="bug-chart-container bug-chart margin-t-30">
+                        <div class="chart ">
+                            {{ chart_bugs_weekly|safe }}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="bug_monthly">
+                    <div class="bug-chart-container bug-chart margin-t-30">
+                        <div class="chart ">
+                            {{ chart_bugs_monthly|safe }}
                         </div>
                     </div>
                 </div>
