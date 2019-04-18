@@ -77,4 +77,27 @@
 
 </div>
 
+<!-- Graphs -->
+<div class="row justify-content-center bug-graphs">
+    <div class="card col-lg-6 col-md-12 col-sm-12">
+        <div class="card-body">
+            <h3>Bug Statistics</h3>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#bug_total">Total</a>
+                </li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active show" id="bug_total">
+                    <div class="bug-chart-container  margin-t-30 ">
+                        <div class="chart ">
+                            {{ chart_total_bug|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
