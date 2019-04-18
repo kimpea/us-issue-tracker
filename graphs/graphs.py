@@ -128,3 +128,32 @@ def chart_total_feature(feature):
     p_chart.add('IN PROGRESS', status_progress)
     p_chart.add('COMPLETE', status_complete)
     return p_chart.render()
+    
+    
+def chart_by_time_feature(feature, days):
+    """
+    Calculate how many days each feature has been in
+    each status, and display this data on a pie chart
+    """
+    status_incomplete = feature.objects.filter(
+        status='INCOMPLETE', incomplete_date__gte=datetime.now() - timedelta(days=days)).count()
+    status_progress = feature.objects.filter(
+        status='IN PROGRESS', in_progress_date__gte=datetime.now() - timedelta(days=days)).count()
+    status_complete = feature.objects.filter(
+        status='COMPLETE', completed_date__gte=datetime.now() - timedelta(days=days)).count()
+    p_chart = pygal.Pie(print_values=True,
+                        legend_at_bottom_columns=3,
+                        legend_box_size=30,
+                        margin=0,
+                        style=custom_style,
+                        no_data_font_size=30,
+                        no_data_text='No Recorded Data',
+                        no_data_font_family='san-serif')
+
+    if status_incomplete == 0 and status_progress == 0 and status_complete == 0:
+        return 'No data has been collected for this period yet.'
+    else:
+        p_chart.add('INCOMPLETE', status_incomplete)
+        p_chart.add('IN PROGRESS', status_progress)
+        p_chart.add('COMPLETE', status_complete)
+        return p_chart.render()
