@@ -92,7 +92,8 @@ nav i {
 .detail-jumbotron i, 
 .bugs-jumbotron a i, 
 .features-jumbotron a i,
-.profile-jumbotron a i {
+.profile-jumbotron a i,
+.cart-jumbotron a i {
   padding-left: 5px;
 }
 
