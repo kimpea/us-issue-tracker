@@ -28,3 +28,15 @@ class TestForms(TestCase):
         )
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['email'], [u'This field is required.'])
+        
+    def test_if_user_requires_username(self):
+        form = UserRegistrationForm(
+            {
+                'email': 'test@test.com',
+                'username': '',
+                'password1': 'test123',
+                'password2': 'test123',
+            }
+        )
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['username'], [u'This field is required.'])
