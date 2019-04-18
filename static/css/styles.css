@@ -42,6 +42,11 @@ nav i {
   border-color: #494949;
 }
 
+.card img {
+  max-width: 300px;
+  height: auto;
+}
+
 /*-- Jumbotron Styles --*/
 
 .welcome-jumbotron {
