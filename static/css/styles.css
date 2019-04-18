@@ -88,6 +88,11 @@ table {
   font-size: 16px;
 }
 
+/*-- FAQs Styles --*/
+
+.faqs li {
+  list-style-type: none;
+}
 
 /*-- Footer Styles --*/
 
