@@ -39,3 +39,13 @@ Wireframes:
  - Upvote feature (for price of £20 per upvote) - this will allow the user to upvote a requested feature whilst donating £20 towards the development process at the same time.
  - Comment form - this will allow users to comment on reported bugs and requested features and involve them in the community.
  - Log out - this will allow the user to log out of the current session.
+
+### Existing Features
+
+- Login/Register form - allows User 1 to have their username as 'USER1' and also their own password.
+- Report bug form - allows User 2 to report a gameplay bug for Unicorn Simulator.
+- Request feature form - allows User 3 to request a new gameplay feature to the developers.
+- Upvote bug - allows User 4 to upvote someone else's bug.
+- Upvote feature - allows User 5 to upvote a feature by paying £20 per upvote.
+- Comment form - allows User 7 to comment on another user's report.
+- Log out - allows all signed up users to log out after using the application (if they wish).
