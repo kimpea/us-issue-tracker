@@ -13,6 +13,9 @@ class Bug(models.Model):
     description = models.TextField()
     user = models.ForeignKey(User, default=None)
     date_created = models.DateTimeField(auto_now_add=True)
+    open_date = models.DateTimeField(blank=True, default=None, null=True)
+    in_progress_date = models.DateTimeField(blank=True, default=None, null=True)
+    fixed_date = models.DateTimeField(blank=True, default=None, null=True)
     upvotes = models.IntegerField(default=0)
     status = models.CharField(choices=STATUS_CHOICES, default='OPEN', max_length=20)
 
