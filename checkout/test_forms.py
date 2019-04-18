@@ -32,3 +32,12 @@ class TestOrderForm(TestCase):
                     
         })
         self.assertTrue(form.is_valid())
+        
+        
+    def test_cannot_make_a_payment_without_required_values(self):
+        form = OrderForm({
+                    'full_name': "Test Testing", 
+                    'email': ''
+                    
+        })
+        self.assertFalse(form.is_valid())
