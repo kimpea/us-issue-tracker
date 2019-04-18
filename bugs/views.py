@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Bug, BugComments
 from .forms import ReportBugForm, BugCommentForm
+from graphs.graphs import BugsPieChart
 import datetime
 
 # Create your views here.
@@ -26,7 +27,13 @@ def bugs(request):
     except EmptyPage:
         bugs = paginator.page(paginator.num_pages)
         
-    return render(request, "bugs.html", {"bugs": bugs})
+    # Display graphs
+    chart_total_bug = BugsPieChart()
+    
+    return render(request, "bugs.html", {
+        "bugs": bugs,
+        'chart_total_bug': chart_total_bug,
+    })
 
 def bug_detail(request, id):
     """
