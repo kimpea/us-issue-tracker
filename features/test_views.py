@@ -29,3 +29,16 @@ class TestFeatureViews(TestCase):
         page=self.client.get("/features/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "features.html")
+        
+    
+    def test_get_feature_detail_page(self):
+        """
+        Testing single feature detail view 
+        """
+        user = User.objects.create_user(username='USER1', password='testing123')
+        user.save()
+        feature = Feature(name='Feature', description='Testing', user=user, price=20, upvotes=0, status='INCOMPLETE')
+        feature.save()
+        page = self.client.get('/features/feature_detail/1', follow=True)
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "feature_detail.html")
