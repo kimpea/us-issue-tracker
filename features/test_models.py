@@ -12,3 +12,15 @@ class TestFeature(TestCase):
     def test_str(self):
         test_name = Feature(name='A feature')
         self.assertEqual(str(test_name), 'A feature')
+        
+    def test_request_feature(self):
+        user = User()
+        user.save()
+        feature = Feature(name="Feature", description="Feature Description", user=user)
+        feature.save()
+        self.assertEqual(feature.name, "Feature")
+        self.assertEqual(feature.description, "Feature Description")
+        self.assertEqual(feature.user, user)
+        self.assertEqual(feature.price, 20)
+        self.assertEqual(feature.status, "INCOMPLETE")
+        self.assertEqual(feature.upvotes, 0)
