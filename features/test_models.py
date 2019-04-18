@@ -24,3 +24,14 @@ class TestFeature(TestCase):
         self.assertEqual(feature.price, 20)
         self.assertEqual(feature.status, "INCOMPLETE")
         self.assertEqual(feature.upvotes, 0)
+        
+    def test_add_comment(self):
+        user = User()
+        user.save()
+        feature = Feature(name="Feature", description="Feature Description", user=user, price=20)
+        feature.save()
+        comment = FeatureComments(comment="Feature Comment", user=user, feature=feature)
+        comment.save()
+        self.assertEqual(comment.comment, "Feature Comment")
+        self.assertEqual(comment.user, user)
+        self.assertEqual(comment.feature, feature)
