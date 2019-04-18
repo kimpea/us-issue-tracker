@@ -63,3 +63,9 @@ class TestForms(TestCase):
         self.assertTrue(form.is_valid())
         form = UserLoginForm({'password': 'test123','username': 'test@test.com'})
         self.assertTrue(form.is_valid())
+        
+    def test_if_login_requires_username_and_password(self):
+        form = UserLoginForm({'username': 'Testing', 'password': ''})
+        self.assertFalse(form.is_valid())
+        form = UserLoginForm({'username': '', 'password': 'test123'})
+        self.assertFalse(form.is_valid())
