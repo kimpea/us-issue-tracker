@@ -57,6 +57,15 @@ nav i {
   border-color: #494949;
 }
 
+/*-- Form Styles --*/
+
+form {
+  width: 100%;
+}
+
+.form-group {
+  padding-right: 5px;
+}
 
 /*-- Footer Styles --*/
 
