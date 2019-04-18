@@ -67,6 +67,22 @@ form {
   padding-right: 5px;
 }
 
+/*-- Table Styles --*/
+
+table i {
+  color: #000;
+  padding-right: 5px;
+}
+
+th, td {
+  width: 25%;
+}
+
+table {
+  font-size: 16px;
+}
+
+
 /*-- Footer Styles --*/
 
 footer {
