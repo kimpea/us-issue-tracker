@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Feature, FeatureComments
 from .forms import RequestFeatureForm, FeatureCommentForm
+from graphs.graphs import FeaturesPieChart
 import datetime
 
 # Create your views here.
@@ -26,7 +27,14 @@ def features(request):
         features = paginator.page(1)
     except EmptyPage:
         features = paginator.page(paginator.num_pages)
-    return render(request, "features.html", {"features": features})
+        
+    # Display graphs
+    chart_total_feature = FeaturesPieChart()    
+        
+    return render(request, "features.html", {
+        "features": features,
+        'chart_total_feature': chart_total_feature,
+    })
     
     
 def feature_detail(request, id):
