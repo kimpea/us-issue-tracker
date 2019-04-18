@@ -40,4 +40,18 @@
         </div>
     </div>
 </div>
+
+<!-- Newsletter Subscription -->
+<!-- Please note that this feature does not work yet and may be implemented in future versions of the application -->
+<div class="jumbotron newsletter-jumbotron text-center">
+    <h3>Subscribe Now</h3>
+    <p class="lead">Subscribe to our newsletter now and receive weekly updates via email of our progression with your reported bugs and requested features - it's free!</p>
+    <form method="POST">
+        {% csrf_token %} 
+        <input type="email" id="email" placeholder="Email address" class="form-control" required/>
+        <br>
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+    </form>
+</div>
+
 {% endblock %}
