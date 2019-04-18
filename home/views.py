@@ -18,7 +18,7 @@ def faq(request, id=None):
         if form.is_valid():
             question = form.save(commit=False)
             question.user = request.user
-            messages.success(request, "Your question has been submitted successfully")
+            messages.success(request, "Your question has been submitted successfully. Our team will be in contact within 24 hours!")
             question.save()
             return redirect(faq)
     else:
