@@ -49,3 +49,6 @@ Wireframes:
 - Upvote feature - allows User 5 to upvote a feature by paying £20 per upvote.
 - Comment form - allows User 7 to comment on another user's report.
 - Log out - allows all signed up users to log out after using the application (if they wish).
+
+### Features Left to Implement
+- Newsletter Subscription - there is currently a form present within the application for newsletter subscriptions, however, there is no functionality to it yet, but may be implemented in future builds.
