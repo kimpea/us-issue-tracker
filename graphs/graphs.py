@@ -21,3 +21,25 @@ custom_style = Style(
     tooltip_font_size=30,
     no_data_font_size=30
 )
+
+################# Bug Charts ###################
+
+def chart_total_bug(bug):
+    """
+    Calculate the total amount of bugs in
+    each status, and present this on a pie chart 
+    """
+    status_open = bug.objects.filter(status='OPEN').count()
+    status_progress = bug.objects.filter(status='IN PROGRESS').count()
+    status_fixed = bug.objects.filter(status='FIXED').count()
+    p_chart = pygal.Pie(print_values=True,
+                        legend_at_bottom_columns=3,
+                        legend_box_size=30,
+                        margin=0,
+                        style=custom_style
+                        )
+
+    p_chart.add('OPEN', status_open)
+    p_chart.add('IN PROGRESS', status_progress)
+    p_chart.add('FIXED', status_fixed)
+    return p_chart.render()
