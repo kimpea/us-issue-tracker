@@ -157,3 +157,9 @@ def chart_by_time_feature(feature, days):
         p_chart.add('IN PROGRESS', status_progress)
         p_chart.add('COMPLETE', status_complete)
         return p_chart.render()
+        
+        
+def FeaturesPieChart():
+    # Displays data calculated from chart_total_feature
+    chart = chart_total_feature(Feature)
+    return chart
