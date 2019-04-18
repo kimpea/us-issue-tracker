@@ -31,6 +31,19 @@
         <li><strong>How can I keep updated on the development progress for bugs and features?</strong></li>
         <li>You can keep up to date with our progress by signing up to our weekly newsletter - these will be received via email.</li>
     </ul>
+    
+    <!-- Ask A Question -->
+    {% if user.is_authenticated %}
+    <form method="POST">
+        <legend>Have a question? Contact us now!</legend>
+        {% csrf_token %} 
+        {{ form|as_bootstrap }}
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Submit Question</button>
+        </div>
+    </form>
+    {% else %}
+    {% endif %}
 
 </div>
 
