@@ -4,6 +4,7 @@ from django.contrib import auth, messages
 from .models import Question
 from .forms import FAQForm
 from django.contrib.auth.models import User
+from graphs.graphs import BugsPieChart, BugsDailyStatus, BugsWeeklyStatus, BugsMonthlyStatus, FeaturesPieChart, FeaturesDailyStatus, FeaturesWeeklyStatus, FeaturesMonthlyStatus
 
 # Create your views here.
 def index(request):
@@ -30,3 +31,25 @@ def faq(request, id=None):
     else:
         form = FAQForm(instance=question)
     return render(request, "faq.html", {'form': form})
+    
+    
+def stats(request):
+    """ A view that renders the stats page """
+    chart_total_bug = BugsPieChart()
+    chart_bugs_daily = BugsDailyStatus()
+    chart_bugs_weekly = BugsWeeklyStatus()
+    chart_bugs_monthly = BugsMonthlyStatus()
+    chart_total_feature = FeaturesPieChart()
+    chart_feature_daily = FeaturesDailyStatus()
+    chart_feature_weekly = FeaturesWeeklyStatus()
+    chart_feature_monthly = FeaturesMonthlyStatus()
+    return render(request, "stats.html", {
+        'chart_total_bug': chart_total_bug,
+        'chart_bugs_daily': chart_bugs_daily,
+        'chart_bugs_weekly': chart_bugs_weekly,
+        'chart_bugs_monthly': chart_bugs_monthly,
+        'chart_total_feature': chart_total_feature,
+        'chart_feature_daily': chart_feature_daily,
+        'chart_feature_weekly': chart_feature_weekly,
+        'chart_feature_monthly': chart_feature_monthly
+    })
