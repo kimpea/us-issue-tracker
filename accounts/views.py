@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from bugs.models import Bug
+from features.models import Feature
 from accounts.forms import UserLoginForm, UserRegistrationForm
 
 # Create your views here.
@@ -65,5 +67,9 @@ def register(request):
 def user_profile(request):
     """ The user's profile page """
     user = User.objects.get(email=request.user.email)
+    bugs = Bug.objects.filter(user=user)
+    features = Feature.objects.filter(user=user)
     return render(request, 'profile.html', {"user": user,
+                                            "bugs": bugs,
+                                            "features": features,
     })
