@@ -10,6 +10,12 @@ def index(request):
     """ A view that renders the index page """
     return render(request, "index.html")
     
+    
+def about(request):
+    """ A view that renders the about page """
+    return render(request, "about.html")
+    
+    
 def faq(request, id=None):
     """ A view that renders the FAQ page with the FAQForm """
     question = get_object_or_404(Question, id=id) if id else None
