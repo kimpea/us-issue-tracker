@@ -6,6 +6,32 @@
 
 {% block content %}
 
+<div class="jumbotron">
+    
+    <!-- Introduction -->
+    <h2 class="display-4">Frequently Asked Questions</h2>
+    <p class="lead">Below are some of our frequently asked questions.</p>
+    {% if user.is_authenticated %}
+    <p class="lead">If you have a question you would like us to answer, please contact us below. Our developers will reply within 24 hours, and if your question is common, we will display it on this page to help other users.</p>
+    {% else %}
+    <p class="lead">If you have a question you would like us to answer, please <a href="{% url 'login' %}">sign in</a> or <a href="{% url 'register' %}">create an account</a>.</p>
+    {% endif %}
+    
+    <!-- Questions -->
+    <ul class="faqs">
+        <li><strong>Is this service free?</strong></li>
+        <li>It is free to report a bug and request a feature, however, upvoting a feature is not free and requires a payment of £20 to do so. 
+        Upvoting a bug and commenting on both bugs and features is free.</li>
+        <li><strong>Why do I have to pay to upvote a feature?</strong></li>
+        <li>Developing a new feature requires the developers to be paid for their time and effort put into making it. The more funds available for a certain feature, the higher priority it is for it to be developed.</li>
+        <li><strong>Why does Unicorn Simulator have so many bugs?</strong></li>
+        <li>Unicorn Simulator was launched in February 2019 - with the application being so new to the market, it is understandable to see a large amount of bugs being reported, and these will be promptly fixed for free by our dedicated team of developers.</li>
+        <li><strong>How much time is spent on developing new features?</strong></li>
+        <li>We promise to dedicate at least 50% of our time on developing the highest-paid feature. The more upvotes a new feature has, the quicker it is developed. The other 50% of our time is spent on fixing bugs.</li>
+        <li><strong>How can I keep updated on the development progress for bugs and features?</strong></li>
+        <li>You can keep up to date with our progress by signing up to our weekly newsletter - these will be received via email.</li>
+    </ul>
 
+</div>
 
 {% endblock %}
