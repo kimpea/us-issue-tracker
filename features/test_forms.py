@@ -8,3 +8,11 @@ class TestRequestFeatureForm(TestCase):
             {'name': 'Feature Name',
             'description': 'Feature Description'})
         self.assertTrue(form.is_valid())
+        
+    def test_feature_without_name_or_description(self):
+        form = RequestFeatureForm({
+            'name': 'Feature Name',
+            'description': ''
+        })
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['description'], ['This field is required.'])
