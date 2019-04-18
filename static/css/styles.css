@@ -59,6 +59,20 @@ nav i {
   font-weight: bold;
 }
 
+.bug-graphs .card {
+  margin-bottom: 90px;
+  border: none;
+}
+
+.graphs {
+  margin: 90px;
+}
+
+.graphs .card {
+  border: none;
+  margin: 5px;
+}
+
 /*-- Jumbotron Styles --*/
 
 .welcome-jumbotron {
