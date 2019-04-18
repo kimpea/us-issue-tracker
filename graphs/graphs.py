@@ -78,3 +78,30 @@ def BugsPieChart():
     # Displays data calculated from chart_total_bug
     chart = chart_total_bug(Bug)
     return chart
+    
+    
+def BugsDailyStatus():
+    """ 
+    Displays data calculated from chart_by_time_bug,
+    but within a daily period 
+    """
+    chart = chart_by_time_bug(Bug, 1)
+    return chart
+
+
+def BugsWeeklyStatus():
+    """ 
+    Displays data calculated from chart_by_time_bug,
+    but within a weekly period 
+    """
+    chart = chart_by_time_bug(Bug, 7)
+    return chart
+
+
+def BugsMonthlyStatus():
+    """ 
+    Displays data calculated from chart_by_time_bug,
+    but within a monthly period 
+    """
+    chart = chart_by_time_bug(Bug, 30)
+    return chart
