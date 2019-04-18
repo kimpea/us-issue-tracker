@@ -16,3 +16,9 @@ class TestRequestFeatureForm(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['description'], ['This field is required.'])
+        
+class TestFeatureCommentForm(TestCase):
+    
+    def test_feature_comment_form(self):
+        form = FeatureCommentForm({'comment': 'This is a comment'})
+        self.assertTrue(form.is_valid())
