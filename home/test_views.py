@@ -24,3 +24,14 @@ class TestHomeViews(TestCase):
         page=self.client.get("/about/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "about.html")
+        
+    
+    def test_get_faq_page(self):
+        """
+        Testing faq view
+        """
+        user = User.objects.create_user('TestingUser', 'testing@test.com', 'testing123')
+        self.client.login(username='TestingUser', password='testing123')
+        page=self.client.get("/faq/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "faq.html")
