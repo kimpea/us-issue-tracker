@@ -47,7 +47,7 @@ def checkout(request):
                 messages.error(request, "Your card was declined!")
                 
             if customer.paid:
-                messages.success(request, "You have successfully paid")
+                messages.success(request, "Payment successful. Thank you for upvoting!")
                 """If payment is successful, increase upvote per quantity paid for"""
                 for id, quantity in cart.items():
                     feature = Feature.objects.get(id=id)
