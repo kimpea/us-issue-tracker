@@ -12,6 +12,7 @@ body {
   padding-bottom: 6rem;
   min-height: 100%;
   background-color: #7c7a7a;
+  overflow-x: hidden;
 }
 
 /*-- Navigation --*/
