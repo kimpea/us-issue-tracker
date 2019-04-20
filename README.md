@@ -80,7 +80,7 @@ Wireframes:
 
 ### Automated Testing
 
-Within this application, 45 automated tests have been carried out using Django TestCase testing tools. All 45 tests have passed. From your command line, enter ```python3 manage.py test``` to run the tests. Tests can be found in the links below:
+Within this application, 44 automated tests have been carried out using Django TestCase testing tools. All 44 tests have passed. From your command line, enter ```python3 manage.py test``` to run the tests. Tests can be found in the links below:
 
 Accounts:
  - [test_forms.py](/accounts/test_forms.py)
@@ -194,10 +194,6 @@ Below are scenarios which a user may experience throughout navigating the websit
 14. About
     1. Click on 'About' in the footer. 
     2. Be directed to about.html.
-
-15. Statistics
-    1. Click on 'Statistics' in the footer. 
-    2. Be presented with pie charts for both bugs and features with total, daily, weekly and monthly filters. 
 
 16. Back to top button
     1. Scroll down on any page with large amounts of content.
