@@ -51,6 +51,7 @@ Wireframes:
 - Log out - allows all signed up users to log out after using the application (if they wish).
 
 ### Features Left to Implement
+
 - Newsletter Subscription - there is currently a form present within the application for newsletter subscriptions, however, there is no functionality to it yet, but may be implemented in future builds.
 
 ## Technologies Used
@@ -210,6 +211,6 @@ HTML code has been passed through the official W3 Validator - errors showing up 
 CSS code has been passed through the official W3 Validator - no errors were found.
 
 ### Bugs
-
+ - User was able to proceed to checkout without having any items in their cart. When the user fills in their payment details and tries to submit payment, an error is thrown. This has been fixed whereby the user may not see the 'Proceed to Checkout' button without any items in their cart.
  - User is currently able to upvote a bug as many times as they like. This is unfair towards other users of the website - a user may wish to gain the highest priority for their bug as possible by upvoting many times, even if the bug does not need to be fixed urgently. This could be fixed in future versions of the application.  
  - Graphs change size when user interacts with them while using a mobile or tablet device. For example, if a user clicks on the 'Daily' tab and then back to 'Total', the graph will be significantly smaller than before. This is not a bug which needs to be fixed urgently, however, it can be fixed in future versions of the application.
