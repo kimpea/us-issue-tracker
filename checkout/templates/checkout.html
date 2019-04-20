@@ -30,8 +30,8 @@
     <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>£{{ total }}</p>
 
 
-    <form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">
-        <legend>Payment Details</legend>
+    <form method="POST" id="payment-form" action="{% url 'checkout' %}">
+        <h3><strong>Payment Details</strong></h3>
         <div id="credit-card-errors" style="display:none">
             <div class="alert-message block-message error" id="stripe-error-message"></div>
         </div>
