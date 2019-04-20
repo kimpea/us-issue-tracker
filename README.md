@@ -205,4 +205,4 @@ Below are scenarios which a user may experience throughout navigating the websit
 ### Bugs
 
  - User is currently able to upvote a bug as many times as they like. This is unfair towards other users of the website - a user may wish to gain the highest priority for their bug as possible by upvoting many times, even if the bug does not need to be fixed urgently. This could be fixed in future versions of the application.  
- - Graphs change size when user interacts with them. For example, if a user clicks on the 'Daily' tab and then back to 'Total', the graph will be significantly smaller than before. This is not a bug which needs to be fixed urgently, however, it can be fixed in future versions of the application.
+ - Graphs change size when user interacts with them while using a mobile or tablet device. For example, if a user clicks on the 'Daily' tab and then back to 'Total', the graph will be significantly smaller than before. This is not a bug which needs to be fixed urgently, however, it can be fixed in future versions of the application.
