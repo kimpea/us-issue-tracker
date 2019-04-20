@@ -74,6 +74,13 @@ nav i {
   margin: 5px;
 }
 
+.card-group .card,
+.card-body, 
+.card-footer {
+  border: none;
+  background-color: #fafafa;
+}
+
 /*-- Jumbotron Styles --*/
 
 .welcome-jumbotron {
@@ -274,7 +281,7 @@ i {
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation : portrait){
+@media screen and (min-width: 768px) and (max-width: 1024px){
   .jumbotron {
     width: 100% !important;
   }
