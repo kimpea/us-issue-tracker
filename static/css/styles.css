@@ -136,6 +136,10 @@ table {
   list-style-type: none;
 }
 
+.faqs {
+  padding: 0;
+}
+
 /*-- Back to top styles --*/
 
 #back-to-top {
@@ -264,6 +268,9 @@ i {
   }
   .feature-stats, .bug-stats {
     width: 100%;
+  }
+  h2 {
+    font-size: 30px !important;
   }
 }
 
