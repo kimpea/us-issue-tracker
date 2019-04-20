@@ -4,7 +4,9 @@
 
 ## UX
 
-This web application is an issue tracker for an imaginary application called 'Unicorn Simulator'. It is designed to allow users to report any bugs they encounter within Unicorn Simulator, and also to request new features to be made by the development team. This application is specifically aimed towards the users of 'Unicorn Simulator' and would be of no use to any other type of target market. This type of user will want to be able to have their own account where they can report bugs, request features, upvote and comment on tickets. This user will also want to know the status of a reported bug or a requested feature. My project is a suitable way of achieving this because it provides a form for the user to use when signing in or registering onto the application, forms for users to report bugs and request new features, and functions which will allow the user to upvote bugs/features and write their own comments to contribute to the community.
+This web application is an issue tracker for an imaginary application called 'Unicorn Simulator'. It is designed to allow users to report any bugs they encounter within Unicorn Simulator, and also to request new features to be made by the development team. This application is specifically aimed towards the users of 'Unicorn Simulator' and would be of no use to any other type of target market, however, the basic foundations of the application could be used for another imaginary app. 
+
+This type of user will want to be able to have their own account where they can report bugs, request features, upvote and comment on tickets. This user will also want to know the status of a reported bug or a requested feature. My project is a suitable way of achieving this because it provides a form for the user to use when signing in or registering onto the application, forms for users to report bugs and request new features, and functions which will allow the user to upvote bugs/features and write their own comments to contribute to the community.
 
 General User Stories:
 
@@ -55,6 +57,8 @@ Wireframes:
 ### Features Left to Implement
 
 - Newsletter Subscription - there is currently a form present within the application for newsletter subscriptions, however, there is no functionality to it yet, but may be implemented in future builds.
+- Downvote button - this would allow users to downvote a reported bug or requested feature.
+- Like or dislike comments - this would allow users to be better involved in the community and perhaps show whether a bug is legitimate or not.
 
 ## Technologies Used
 
@@ -114,7 +118,7 @@ Checkout:
 
 ### Manual Testing
 
-Below are scenarios which a user may experience throughout navigating the website. These have been used to manually test the application's features.
+Below are scenarios which a user may experience while navigating the website. These have been used to manually test the application's features.
 
 1. Home
     1. Click on 'Home' in navigation bar
@@ -236,7 +240,7 @@ os.environ.setdefault('SECRET_KEY', '')
 #os.environ.setdefault('DATABASE_URL', '')
 ```
 
-6. Make sure you incomment `#import env` in settings.py.
+6. Make sure you uncomment `#import env` in settings.py.
 7. You will need to generate your own SECRET_KEY. You will need to set up a Stripe account and use their testing API keys. Once you have a database set up (you can use Postgres for database on Heroku) you can uncomment
 os.environ.setdefault('DATABASE_URL', '') and use the key that PostgreSQL generates for you in Heroku's Config Vars.
 8. Make migrations with `python3 manage.py makemigrations`.
@@ -268,7 +272,7 @@ To deploy this application with Heroku, I completed the following steps:
 17. In Heroku, go to Deploy and select GitHub as a deployment method. Find your repository. Manually deploy the master branch. Activate automatic deploys.
 18. Add the deployed Heroku link to ALLOWED_HOSTS in settings.py and `git push origin master`. The Heroku app should now be working.
 
-### Development vs Deployed
+### Development vs Deployed Version
 
 In the development version, Debug is set to True and the env.py file is imported into settings.py. However, in the deployed version, Debug is set to False and env.py is commented out. Also, the env.py file is not pushed to GitHub or Heroku as this contains keys which need to remain hidden from other users. The deployed version uses Heroku's PostgreSQL database whereas the development version uses SQLite. 
 
@@ -280,7 +284,7 @@ Deployed version [here](https://us-issue-tracker.herokuapp.com/).
  - I have used W3School's back-to-top button functionality within my application - this has been restyled and modified to be more suitable for the website. This can be found [here](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp).
 
 ### Content
-- All of the reported bugs within the database are adapted from [The Sims 4's bug reports website](https://answers.ea.com/t5/Bug-Reports/bd-p/The-Sims-4-Bugs). These have been modified to fit around my own idea of the imaginary application that my issue tracker is based upon i.e. Unicorn Simulator. 
+- All of the reported bugs within the database are inspired from [The Sims 4's bug reports website](https://answers.ea.com/t5/Bug-Reports/bd-p/The-Sims-4-Bugs). These have been modified to fit around my own idea of the imaginary application that my issue tracker is based upon i.e. Unicorn Simulator. 
 
 ### Media
 - The avatars for the About page have been created with the [Avataaars Generator](https://getavataaars.com/).
