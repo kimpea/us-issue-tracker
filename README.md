@@ -202,6 +202,13 @@ Below are scenarios which a user may experience throughout navigating the websit
 
 ### Responsive Testing
 
+This website has been tested on different device screen sizes using Google Chrome Developer Tools and Mozilla Firefox Developer Tools. Minor bugs have been fixed as a result of this testing and I can confirm that this website functions responsively on all device screen sizes. 
+
+### Code Validation
+
+HTML code has been passed through the official W3 Validator - errors showing up were due to Jinja syntax. Any other errors within the code have been corrected.
+CSS code has been passed through the official W3 Validator - no errors were found.
+
 ### Bugs
 
  - User is currently able to upvote a bug as many times as they like. This is unfair towards other users of the website - a user may wish to gain the highest priority for their bug as possible by upvoting many times, even if the bug does not need to be fixed urgently. This could be fixed in future versions of the application.  
