@@ -227,14 +227,15 @@ CSS code has been passed through the official W3 Validator - no errors were foun
 4. Install requirements with `pip3 install -r requirements.txt`. 
 5. Create an env.py file with the following: 
 
-`
+```
 import os
 
 os.environ.setdefault('STRIPE_PUBLISHABLE', "")
 os.environ.setdefault('STRIPE_SECRET', "")
 os.environ.setdefault('SECRET_KEY', '')
 #os.environ.setdefault('DATABASE_URL', '')
-`
+```
+
 6. Make sure you incomment `#import env` in settings.py.
 7. You will need to generate your own SECRET_KEY. You will need to set up a Stripe account and use their testing API keys. Once you have a database set up (you can use Postgres for database on Heroku) you can uncomment
 os.environ.setdefault('DATABASE_URL', '') and use the key that PostgreSQL generates for you in Heroku's Config Vars.
