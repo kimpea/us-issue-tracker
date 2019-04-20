@@ -1,4 +1,4 @@
-# Unicorn Simulator Issue Tracker
+# [Unicorn Simulator Issue Tracker](https://us-issue-tracker.herokuapp.com/)
 
 [![Build Status](https://travis-ci.org/kimpea/us-issue-tracker.svg?branch=master)](https://travis-ci.org/kimpea/us-issue-tracker)
 
@@ -216,3 +216,71 @@ CSS code has been passed through the official W3 Validator - no errors were foun
  - User was able to proceed to checkout without having any items in their cart. When the user fills in their payment details and tries to submit payment, an error is thrown. This has been fixed whereby the user may not see the 'Proceed to Checkout' button without any items in their cart.
  - User is currently able to upvote a bug as many times as they like. This is unfair towards other users of the website - a user may wish to gain the highest priority for their bug as possible by upvoting many times, even if the bug does not need to be fixed urgently. This could be fixed in future versions of the application.  
  - Graphs change size when user interacts with them while using a mobile or tablet device. For example, if a user clicks on the 'Daily' tab and then back to 'Total', the graph will be significantly smaller than before. This is not a bug which needs to be fixed urgently, however, it can be fixed in future versions of the application.
+
+## Deployment
+
+### To run this locally...
+
+1. Create a new workspace in C9 with a workspace name and description, and use either `https://github.com/kimpea/us-issue-tracker.git` or `git@github.com:kimpea/us-issue-tracker.git` in the 'Clone from Git' field.
+2. Create a virtual environment with `wget -q https://git.io/v77xs -O /tmp/setup-workspace.sh && source /tmp/setup-workspace.sh`.
+3. Activate this virtual environment with `mkvirtualenv [name of virtual environment]`.
+4. Install requirements with `pip3 install -r requirements.txt`. 
+5. Create an env.py file with the following: 
+
+`
+import os
+
+os.environ.setdefault('STRIPE_PUBLISHABLE', "")
+os.environ.setdefault('STRIPE_SECRET', "")
+os.environ.setdefault('SECRET_KEY', '')
+#os.environ.setdefault('DATABASE_URL', '')
+`
+6. Make sure you incomment `#import env` in settings.py.
+7. You will need to generate your own SECRET_KEY. You will need to set up a Stripe account and use their testing API keys. Once you have a database set up (you can use Postgres for database on Heroku) you can uncomment
+os.environ.setdefault('DATABASE_URL', '') and use the key that PostgreSQL generates for you in Heroku's Config Vars.
+8. Make migrations with `python3 manage.py makemigrations`.
+9. Migrate with `python3 manage.py migrate`.
+10. Create a super user with `python3 manage.py createsuperuser` and follow instructions in your terminal.
+11. To run the application locally, type in `python3 manage.py runserver $IP:$C9_PORT`.
+12. Please note that the database will be empty, therefore there will be no reported bugs or requested features on display. This also means the graphs will not be showing until data is submitted into the database. 
+
+### Heroku
+
+To deploy this application with Heroku, I completed the following steps:
+
+1. Initialise a repository in the workspace with `git init`.
+2. Create a repository on GitHub and type `git remote add origin https://github.com/[github username]/[repo name].git` into the terminal.
+3. Use `git status`to outline all staged and unstaged files. Use `git add` to stage all files.
+4. Add env.py to .gitignore with `echo env.py >> .gitignore` so that secret keys are not pushed to GitHub or Heroku.
+5. Use `git commit -m [message]` to commit changes.
+6. Use `git push -u origin master` to push these changes to GitHub.
+7. Log into Heroku and Create New App. Create a unique name and region (USA or Europe, whichever is closest to you).
+8. Navigate to Resources and search for 'PostgreSQL' - choose 'Hobby Dev - Free' and select 'Provision'.
+9.Go to Settings and Reveal Config Vars - copy and paste the SECRET_KEY, STRIPE_PUBLISHABLE and STRIPE_SECRET into the fields.
+10. In env.py, uncomment DATABASE_URL and use the key generated from PostgreSQL in Heroku's Config Vars. 
+11. In Config Vars, add DISABLE_COLLECTSTATIC = 1.
+12. Run `python3 manage.py makemigrations` and `python3 manage.py migrate`.
+13. Create a new super user for the production database with `python3 manage.py createsuperuser` and follow instructions in the terminal.
+14. `pip3 freeze > requirements.txt` to make sure requirements.txt is up to date. Remove pygobject and unattended upgrades.
+15. Create a Procfile and add `web: gunicorn tracker.wsgi:application`
+16. In settings.py, comment out `import env` and set `DEBUG = False`.
+17. In Heroku, go to Deploy and select GitHub as a deployment method. Find your repository. Manually deploy the master branch. Activate automatic deploys.
+18. Add the deployed Heroku link to ALLOWED_HOSTS in settings.py and `git push origin master`. The Heroku app should now be working.
+
+### Development vs Deployed
+
+In the development version, Debug is set to True and the env.py file is imported into settings.py. However, in the deployed version, Debug is set to False and env.py is commented out. Also, the env.py file is not pushed to GitHub or Heroku as this contains keys which need to remain hidden from other users. The deployed version uses Heroku's PostgreSQL database whereas the development version uses SQLite. 
+
+Deployed version [here](https://us-issue-tracker.herokuapp.com/).
+
+## Credits
+
+ - The accounts app has been borrowed from my [django-auth mini-project](https://github.com/kimpea/django-auth) which was created with the help of Code Institute's detailed lessons in Authentication and Authorisation. This app includes the functionality for logging in and registering a user into the database. 
+ - I have used W3School's back-to-top button functionality within my application - this has been restyled and modified to be more suitable for the website. This can be found [here](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp).
+
+### Content
+- All of the reported bugs within the database are adapted from [The Sims 4's bug reports website](https://answers.ea.com/t5/Bug-Reports/bd-p/The-Sims-4-Bugs). These have been modified to fit around my own idea of the imaginary application that my issue tracker is based upon i.e. Unicorn Simulator. 
+
+### Media
+- The avatars for the About page have been created with the [Avataaars Generator](https://getavataaars.com/).
+- The logo has been created through [Logojoy](https://logojoy.com/).
