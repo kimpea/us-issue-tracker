@@ -7,49 +7,51 @@
 <div class="row justify-content-center graphs">
     
     <!-- Bug Graphs -->
-    <div class="card col-lg-5 col-md-12 col-sm-12">
-        <div class="card-body">
-            <h3>Bug Statistics</h3>
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#bug_total">Total</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#bug_daily">Daily</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#bug_weekly">Weekly</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#bug_monthly">Monthly</a>
-                </li>
-            </ul>
-            <div id="myTabContent" class="tab-content">
-                <div class="tab-pane fade active show" id="bug_total">
-                    <div class="bug-chart-container  margin-t-30 ">
-                        <div class="chart ">
-                            {{ chart_total_bug|safe }}
+    <div class="bug-stats">
+        <div class="card col-lg-12 col-md-12 col-sm-12">
+            <div class="card-body">
+                <h3>Bug Statistics</h3>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#bug_total">Total</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#bug_daily">Daily</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#bug_weekly">Weekly</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#bug_monthly">Monthly</a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active show" id="bug_total">
+                        <div class="bug-chart-container  margin-t-30 ">
+                            <div class="chart ">
+                                {{ chart_total_bug|safe }}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="bug_daily">
-                    <div class="bug-chart-container bug-chart margin-t-30">
-                        <div class="chart ">
-                            {{ chart_bugs_daily|safe }}
+                    <div class="tab-pane fade" id="bug_daily">
+                        <div class="bug-chart-container bug-chart margin-t-30">
+                            <div class="chart ">
+                                {{ chart_bugs_daily|safe }}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="bug_weekly">
-                    <div class="bug-chart-container bug-chart margin-t-30">
-                        <div class="chart ">
-                            {{ chart_bugs_weekly|safe }}
+                    <div class="tab-pane fade" id="bug_weekly">
+                        <div class="bug-chart-container bug-chart margin-t-30">
+                            <div class="chart ">
+                                {{ chart_bugs_weekly|safe }}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="bug_monthly">
-                    <div class="bug-chart-container bug-chart margin-t-30">
-                        <div class="chart ">
-                            {{ chart_bugs_monthly|safe }}
+                    <div class="tab-pane fade" id="bug_monthly">
+                        <div class="bug-chart-container bug-chart margin-t-30">
+                            <div class="chart ">
+                                {{ chart_bugs_monthly|safe }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -58,49 +60,51 @@
     </div>
     
     <!-- Feature Graphs -->
-    <div class="card col-lg-5 col-md-12 col-sm-12">
-        <div class="card-body">
-            <h3>Feature Statistics</h3>
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#feature_total">Total</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#feature_daily">Daily</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#feature_weekly">Weekly</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#feature_monthly">Monthly</a>
-                </li>
-            </ul>
-            <div id="myTabContent" class="tab-content">
-                <div class="tab-pane fade active show" id="feature_total">
-                    <div class="feature-chart-container  margin-t-30 ">
-                        <div class="chart ">
-                            {{ chart_total_feature|safe }}
+    <div class="feature-stats">
+        <div class="card col-lg-12 col-md-12 col-sm-12">
+            <div class="card-body">
+                <h3>Feature Statistics</h3>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#feature_total">Total</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#feature_daily">Daily</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#feature_weekly">Weekly</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#feature_monthly">Monthly</a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active show" id="feature_total">
+                        <div class="feature-chart-container  margin-t-30 ">
+                            <div class="chart ">
+                                {{ chart_total_feature|safe }}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="feature_daily">
-                    <div class="feature-chart-container bug-chart margin-t-30">
-                        <div class="chart ">
-                            {{ chart_feature_daily|safe }}
+                    <div class="tab-pane fade" id="feature_daily">
+                        <div class="feature-chart-container bug-chart margin-t-30">
+                            <div class="chart ">
+                                {{ chart_feature_daily|safe }}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="feature_weekly">
-                    <div class="feature-chart-container bug-chart margin-t-30">
-                        <div class="chart ">
-                            {{ chart_feature_weekly|safe }}
+                    <div class="tab-pane fade" id="feature_weekly">
+                        <div class="feature-chart-container bug-chart margin-t-30">
+                            <div class="chart ">
+                                {{ chart_feature_weekly|safe }}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="feature_monthly">
-                    <div class="feature-chart-container bug-chart margin-t-30">
-                        <div class="chart ">
-                            {{ chart_feature_monthly|safe }}
+                    <div class="tab-pane fade" id="feature_monthly">
+                        <div class="feature-chart-container bug-chart margin-t-30">
+                            <div class="chart ">
+                                {{ chart_feature_monthly|safe }}
+                            </div>
                         </div>
                     </div>
                 </div>
