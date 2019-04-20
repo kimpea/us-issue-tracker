@@ -35,7 +35,7 @@
     <!-- Ask A Question -->
     {% if user.is_authenticated %}
     <form method="POST">
-        <legend>Have a question? Contact us now!</legend>
+        <h4>Have a question? Contact us now!</h4>
         {% csrf_token %} 
         {{ form|as_bootstrap }}
         <div class="form-actions">
