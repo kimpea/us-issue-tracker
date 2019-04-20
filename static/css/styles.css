@@ -66,7 +66,8 @@ nav i {
 }
 
 .graphs {
-  margin: 90px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .graphs .card {
@@ -260,6 +261,9 @@ i {
   }
   .service {
     margin-top: 20px;
+  }
+  .feature-stats, .bug-stats {
+    width: 100%;
   }
 }
 
