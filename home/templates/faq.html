@@ -12,7 +12,7 @@
     <h2 class="display-4">Frequently Asked Questions</h2>
     <p class="lead">Below are some of our frequently asked questions.</p>
     {% if user.is_authenticated %}
-    <p class="lead">If you have a question you would like us to answer, please contact us below. Our developers will reply within 24 hours, and if your question is common, we will display it on this page to help other users.</p>
+    <p class="lead">If you have a question you would like us to answer, please contact us below. Our developers will reply within 24 hours, and if your question is frequently asked, we will display it on this page to help other users.</p>
     {% else %}
     <p class="lead">If you have a question you would like us to answer, please <a href="{% url 'login' %}">sign in</a> or <a href="{% url 'register' %}">create an account</a>.</p>
     {% endif %}
