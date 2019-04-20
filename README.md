@@ -108,3 +108,100 @@ Checkout:
  - [test_forms.py](/checkout/test_forms.py)
  - [test_models.py](/checkout/test_models.py)
  - [test_views.py](/checkout/test_views.py)
+
+### Manual Testing
+
+Below are scenarios which a user may experience throughout navigating the website. These have been used to manually test the application's features.
+
+1. Home
+    1. Click on 'Home' in navigation bar
+    2. Be directed to the home page
+
+2. Register
+    1. Click on 'Register' button in the navigation bar
+    2. Fill in email address, username, password and password confirmation fields in the form
+    3. If any fields are left empty, be presented with 'Please fill in this field.' tooltip.
+    4. Once fields are filled in, click 'Register' button
+    5. Be presented with 'You have successfully registered' message and also logged in
+
+3. Login
+    1. Click on 'Login' button in the navigation bar
+    2. Fill in the login form with username and password
+    3. Click on the 'Login' button
+    4. Be presented with 'You have successfully logged in!' message
+
+4. Logout
+    1. Click 'Logout' button in the navigation bar
+    2. Be redirected to the home page, and presented with a 'You have successfully logged out!' message
+
+5. Profile
+    1. When logged in, click 'Profile' in the navigation bar.
+    2. Be directed to your profile page, displaying your username and email address, and any reported bugs and requested features you have made. 
+
+6. Report bug
+    1. When logged in, click on 'Report A Bug' in the navigation bar
+    2. Be directed to report_bug.html
+    3. Fill in the name and description of the bug
+    4. If either fields are left empty, be presented with 'Please fill in this field.' tooltips.
+    5. Click on 'Submit Report'
+    6. Be directed to bug_detail.html for the bug you have just reported
+
+7. Reported bugs
+    1. Click on 'Reported Bugs' in the navigation bar
+    2. Be directed to bugs.html and presented with a table of all submitted bugs, showing their names, upvotes, date posted and statuses. 
+    3. Also be presented with a pie chart for the bug statuses with total, daily, weekly and monthly filters.
+    4. If there is no data collected for a certain period, be presented with 'No data has been collected for this period yet'.
+    5. To view a specific bug, click on any bug name in the table and be directed to bug_detail.html for that chosen bug.
+
+8. Upvote bug
+    1. When logged in, click on any bug name that has an 'OPEN' or 'IN PROGRESS' status and be directed to bug_detail.html for that specific bug.
+    2. Click on 'Upvote' and see the upvote counter increase by one. 
+
+9. Comment on bug/feature
+    1. When logged in and viewing bug or feature_detail for any bug/feature, write a comment in the comment field.
+    2. Click 'Post' and the page will refresh to show your comment, displaying your username and the time it was posted.
+
+10. Request features
+    1. When logged in, click on 'Request New Feature' in the navigation bar
+    2. Be directed to request_feature.html
+    3. Fill in the name and description of the feature
+    4. If either fields are left empty, be presented with 'Please fill in this field.' tooltips.
+    5. Click on 'Submit'
+    6. Be directed to feature_detail.html for the feature you have just requested
+
+11. Requested features
+    1. Click on 'Requested Features' in the navigation bar
+    2. Be directed to features.html and presented with a table of all requested features, showing their names, upvotes, date posted and statuses. 
+    3. Also be presented with a pie chart for the feature statuses with total, daily, weekly and monthly filters.
+    4. If there is no data collected for a certain period, be presented with 'No data has been collected for this period yet'.
+    5. To view a specific feature, click on any feature name in the table and be directed to feature_detail.html for that chosen feature.
+
+12. Upvote feature
+    1. When logged in, click on any feature name and be directed to feature_detail.html for that specific feature.
+    2. Select how many upvotes you would like to apply to this feature and click 'Add'.
+    3. Be directed to cart.html
+    4. Click 'Checkout' and be presented with a checkout form.
+    5. Use '4242424242424242' for the Credit Card Number and '111' for the CVV. Pick any expiry month and year past the current date. These are Stripe's official testing numbers – no realistic payment will be made. 
+    6. Be presented with error messages if any of the fields are not filled in.
+    7. Click 'Submit Payment' and be presented with 'You have successfully paid.' message.
+
+13. FAQs
+    1. When logged out, click on 'FAQs' in the footer and be presented with frequently asked questions.
+    2. When logged in, click on 'FAQs' in the footer and be presented with frequently asked questions and a question form.
+    3. Fill in the name and description fields and click 'Submit Question'. If the description field is left empty, you should still be able to post your question. 
+    4. Be presented with a 'Your question has been submitted successfully.' message. 
+
+14. About
+    1. Click on 'About' in the footer. 
+    2. Be directed to about.html.
+
+15. Statistics
+    1. Click on 'Statistics' in the footer. 
+    2. Be presented with pie charts for both bugs and features with total, daily, weekly and monthly filters. 
+
+16. Back to top button
+    1. Scroll down on any page with large amounts of content.
+    2. A button on the bottom right of the page should appear.
+    3. Click this button to return to the top of the page
+
+### Responsive Testing
