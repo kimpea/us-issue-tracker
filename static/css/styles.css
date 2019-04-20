@@ -60,8 +60,8 @@ nav i {
   font-weight: bold;
 }
 
-.bug-graphs .card,
-.feature-graphs .card {
+.bugs-graph,
+.features-graph {
   margin-bottom: 90px;
   border: none;
 }
@@ -279,9 +279,9 @@ i {
     width: 100% !important;
   }
   
-  .bug-graphs,
-  .feature-graphs {
-    width: 80% !important;
+  .bugs-graph,
+  .features-graph {
+    width: 100% !important;
   }
   .service {
     margin-top: 20px;
