@@ -281,6 +281,9 @@ i {
   .service {
     margin-top: 20px;
   }
+  .graphs {
+    margin: 60px;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1336px) {
