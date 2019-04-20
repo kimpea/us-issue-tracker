@@ -1,0 +1,1 @@
+web: gunicorn us-issue-tracker.wsgi:application
