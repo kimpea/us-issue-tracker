@@ -52,3 +52,26 @@ Wireframes:
 
 ### Features Left to Implement
 - Newsletter Subscription - there is currently a form present within the application for newsletter subscriptions, however, there is no functionality to it yet, but may be implemented in future builds.
+
+## Technologies Used
+
+- HTML
+    - This project uses **HTML** to build the foundation of the web application and includes links to Bootstrap 4, Bootstrap JS, CSS, and Font Awesome.
+- CSS
+    - This project uses **CSS** to style the features of the web application, including the header, footer and each page of the issue tracker. It is also used to modify Bootstrap 4 styles.
+- [JavaScript](https://www.javascript.com/)
+    - This project uses **JavaScript** to provide the functionality for the Stripe API and for the back-to-top button.
+- [Python](https://www.python.org/)
+    - This project uses **Python** to provide the backend functionality of the issue tracker, including functions to report bugs and request features.
+- [Django](https://www.djangoproject.com/)
+    - This project uses **Django**, a high-level Python Web framework that encourages rapid development and clean, pragmatic design. 
+- [Stripe](https://stripe.com/en-GB/)
+    - This project uses the **Stripe** payment API, providing a secure payment form for the application.
+- [JQuery](https://jquery.com)
+    - The project uses **JQuery** to simplify DOM manipulation.
+- [Pygal](http://www.pygal.org/en/stable/)
+    - This project uses **Pygal** charts to dynamically present data collected from the database.
+- [Font Awesome](https://fontawesome.com/)
+    - This project uses **Font Awesome** to provide icons for the application.
+- [Wireframes.cc](https://wireframe.cc/)
+    - This project uses **Wireframes CC** for the Skeleton and Surface Plan, providing desktop and mobile views of the web application.
