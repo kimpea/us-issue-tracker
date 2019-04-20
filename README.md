@@ -75,3 +75,36 @@ Wireframes:
     - This project uses **Font Awesome** to provide icons for the application.
 - [Wireframes.cc](https://wireframe.cc/)
     - This project uses **Wireframes CC** for the Skeleton and Surface Plan, providing desktop and mobile views of the web application.
+
+## Testing
+
+### Automated Testing
+
+Within this application, 45 automated tests have been carried out using Django TestCase testing tools. All 45 tests have passed. From your command line, enter ```python3 manage.py test``` to run the tests. Tests can be found in the links below:
+
+Accounts:
+ - [test_forms.py](/accounts/test_forms.py)
+ - [test_views.py](/accounts/test_views.py)
+
+Bugs:
+ - [test_forms.py](/bugs/test_forms.py)
+ - [test_models.py](/bugs/test_models.py)
+ - [test_views.py](/bugs/test_views.py)
+
+Features:
+ - [test_forms.py](/features/test_forms.py)
+ - [test_models.py](/features/test_models.py)
+ - [test_views.py](/features/test_views.py)
+
+Home:
+ - [test_forms.py](/home/test_forms.py)
+ - [test_models.py](/home/test_models.py)
+ - [test_views.py](/home/test_views.py)
+
+Cart:
+ - [test_views.py](/cart/test_views.py)
+
+Checkout:
+ - [test_forms.py](/checkout/test_forms.py)
+ - [test_models.py](/checkout/test_models.py)
+ - [test_views.py](/checkout/test_views.py)
