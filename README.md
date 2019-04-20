@@ -1,5 +1,7 @@
 # Unicorn Simulator Issue Tracker
 
+[![Build Status](https://travis-ci.org/kimpea/us-issue-tracker.svg?branch=master)](https://travis-ci.org/kimpea/us-issue-tracker)
+
 ## UX
 
 This web application is an issue tracker for an imaginary application called 'Unicorn Simulator'. It is designed to allow users to report any bugs they encounter within Unicorn Simulator, and also to request new features to be made by the development team. This application is specifically aimed towards the users of 'Unicorn Simulator' and would be of no use to any other type of target market. This type of user will want to be able to have their own account where they can report bugs, request features, upvote and comment on tickets. This user will also want to know the status of a reported bug or a requested feature. My project is a suitable way of achieving this because it provides a form for the user to use when signing in or registering onto the application, forms for users to report bugs and request new features, and functions which will allow the user to upvote bugs/features and write their own comments to contribute to the community.
