@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from home.views import index, faq, about, stats
+from home.views import index, faq, about
 from accounts import urls as urls_accounts
 from bugs import urls as urls_bugs
 from features import urls as urls_features
@@ -29,7 +29,6 @@ urlpatterns = [
     url(r'^$', index, name="index"),
     url(r'^faq/', faq, name="faq"),
     url(r'^about/', about, name="about"),
-    url(r'^stats/', stats, name="stats"),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^bugs/', include(urls_bugs)),
     url(r'^features/', include(urls_features)),
