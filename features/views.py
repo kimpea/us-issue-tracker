@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Feature, FeatureComments
 from .forms import RequestFeatureForm, FeatureCommentForm
-from graphs.graphs import FeaturesPieChart, FeaturesDailyStatus, FeaturesWeeklyStatus, FeaturesMonthlyStatus
+from graphs.graphs import FeaturesTotalChart, FeaturesDailyStatus, FeaturesWeeklyStatus, FeaturesMonthlyStatus
 import datetime
 
 # Create your views here.
@@ -29,7 +29,7 @@ def features(request):
         features = paginator.page(paginator.num_pages)
         
     # Display graphs
-    chart_total_feature = FeaturesPieChart()    
+    chart_total_feature = FeaturesTotalChart()    
     chart_feature_daily = FeaturesDailyStatus()
     chart_feature_weekly = FeaturesWeeklyStatus()
     chart_feature_monthly = FeaturesMonthlyStatus()
