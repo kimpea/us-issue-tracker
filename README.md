@@ -81,6 +81,8 @@ Wireframes:
     - This project uses **Pygal** charts to dynamically present data collected from the database.
 - [Font Awesome](https://fontawesome.com/)
     - This project uses **Font Awesome** to provide icons for the application.
+- [WhiteNoise](http://whitenoise.evans.io/en/stable/#)
+    - This project uses **WhiteNoise** to hose the staticfiles for Heroku. It provides radically simplified static file serving for Python web apps.
 - [Wireframes.cc](https://wireframe.cc/)
     - This project uses **Wireframes CC** for the Skeleton and Surface Plan, providing desktop and mobile views of the web application.
 
