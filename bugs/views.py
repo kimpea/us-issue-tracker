@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Bug, BugComments
 from .forms import ReportBugForm, BugCommentForm
-from graphs.graphs import BugsPieChart, BugsDailyStatus, BugsWeeklyStatus, BugsMonthlyStatus
+from graphs.graphs import BugsTotalChart, BugsDailyStatus, BugsWeeklyStatus, BugsMonthlyStatus
 import datetime
 
 # Create your views here.
@@ -28,7 +28,7 @@ def bugs(request):
         bugs = paginator.page(paginator.num_pages)
         
     # Display graphs
-    chart_total_bug = BugsPieChart()
+    chart_total_bug = BugsTotalChart()
     chart_bugs_daily = BugsDailyStatus()
     chart_bugs_weekly = BugsWeeklyStatus()
     chart_bugs_monthly = BugsMonthlyStatus()
