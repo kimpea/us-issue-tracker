@@ -4,7 +4,6 @@ from django.contrib import auth, messages
 from .models import Question
 from .forms import FAQForm
 from django.contrib.auth.models import User
-from graphs.graphs import BugsPieChart, BugsDailyStatus, BugsWeeklyStatus, BugsMonthlyStatus, FeaturesPieChart, FeaturesDailyStatus, FeaturesWeeklyStatus, FeaturesMonthlyStatus
 
 # Create your views here.
 def index(request):
