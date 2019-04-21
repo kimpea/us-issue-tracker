@@ -59,6 +59,7 @@ Wireframes:
 - Newsletter Subscription - there is currently a form present within the application for newsletter subscriptions, however, there is no functionality to it yet, but may be implemented in future builds.
 - Downvote button - this would allow users to downvote a reported bug or requested feature.
 - Like or dislike comments - this would allow users to be better involved in the community and perhaps show whether a bug is legitimate or not.
+- In future builds, it might be a nice idea to implement a blog feature, whereby users may write their own blogs about the imaginary app, or bugs they have fixed themselves. Also, developers could release their own blogs.
 
 ## Technologies Used
 
