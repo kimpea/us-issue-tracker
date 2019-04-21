@@ -74,7 +74,7 @@ def chart_by_time_bug(bug, days):
         return p_chart.render()
         
         
-def BugsPieChart():
+def BugsTotalChart():
     # Displays data calculated from chart_total_bug
     chart = chart_total_bug(Bug)
     return chart
@@ -159,7 +159,7 @@ def chart_by_time_feature(feature, days):
         return p_chart.render()
         
         
-def FeaturesPieChart():
+def FeaturesTotalChart():
     # Displays data calculated from chart_total_feature
     chart = chart_total_feature(Feature)
     return chart
