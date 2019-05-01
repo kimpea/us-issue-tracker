@@ -13,8 +13,8 @@ def view_cart(request):
 
 def add_to_cart(request, id):
     """ Add a feature upvote to the cart"""
-    quantity = int(request.POST.get('quantity'))
-
+    quantity = 1
+    
     feature = get_object_or_404(Feature, id=id)
     feature.save()
 
