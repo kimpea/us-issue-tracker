@@ -27,7 +27,7 @@
     <hr>
     {% endfor %}
     <p><strong>Total amount to be paid:</strong></p>
-    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>£{{ total }}</p>
+    <p>£{{ total }}</p>
 
 
     <form method="POST" id="payment-form" action="{% url 'checkout' %}">
