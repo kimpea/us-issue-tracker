@@ -10,13 +10,7 @@ from accounts.forms import UserLoginForm, UserRegistrationForm
 def index(request):
     """ Return index.html file """
     return render(request, 'index.html')
-    
-@login_required    
-def logout(request):
-    """ Log the user out """
-    auth.logout(request)
-    messages.success(request, "You have successfully been logged out!")
-    return redirect(reverse('index'))
+  
     
 def login(request):
     """ Return a login page """
@@ -37,6 +31,15 @@ def login(request):
     else:
         login_form = UserLoginForm()
     return render(request, 'login.html', {"login_form": login_form})
+
+
+@login_required    
+def logout(request):
+    """ Log the user out """
+    auth.logout(request)
+    messages.success(request, "You have successfully been logged out!")
+    return redirect(reverse('index'))
+
     
 def register(request):
     """ Return the registration page """
@@ -63,7 +66,9 @@ def register(request):
         registration_form = UserRegistrationForm()
     return render(request, 'registration.html',
         {"registration_form": registration_form})
-        
+
+
+@login_required        
 def user_profile(request):
     """ The user's profile page """
     user = User.objects.get(email=request.user.email)
