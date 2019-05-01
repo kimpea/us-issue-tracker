@@ -22,12 +22,10 @@
     <p class="lead"><strong>Description:</strong> {{ feature.description }}</p>
     <p class="lead"><strong>Upvotes:</strong> {{ feature.upvotes }}</p>
     <p class="lead">
-        <p class="card-text">Upvote for £{{ feature.price }}</p>
         <form method="post" action="{% url 'add_to_cart' feature.id %}">
             {% csrf_token %}
             <div class="form-inline">
-                <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
-                <button class="btn btn-success" type="submit">Add</button>
+                <button class="btn btn-success" type="submit">Upvote for £{{ feature.price }}</button>
             </div>
         </form>
     </p>
