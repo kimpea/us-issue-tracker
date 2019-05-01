@@ -76,13 +76,13 @@ nav i {
 /*-- Jumbotron Styles --*/
 
 .welcome-jumbotron {
-  margin-top: 5rem !important;
+  margin-top: 8rem !important;
 }
 
 .jumbotron {
   width: 80% !important;
   margin: auto;
-  margin-top: 4.375rem;
+  margin-top: 8rem;
   margin-bottom: 5.625rem;
   padding: 2.5rem;
   background-color: #fafafa;
