@@ -8,7 +8,7 @@ class Order(models.Model):
     email = models.EmailField(max_length=100, blank=False, default='example@example.com')
     
     def __str__(self):
-        return "{0}-{1}-{2}".format(self.id, self.date, self.full_name)
+        return "{0}-{1}-{2}".format(self.id, self.full_name, self.email)
         
         
 class OrderLineItem(models.Model):
