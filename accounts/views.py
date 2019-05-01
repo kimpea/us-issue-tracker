@@ -68,13 +68,15 @@ def register(request):
         {"registration_form": registration_form})
 
 
-@login_required        
 def user_profile(request):
     """ The user's profile page """
-    user = User.objects.get(email=request.user.email)
-    bugs = Bug.objects.filter(user=user)
-    features = Feature.objects.filter(user=user)
-    return render(request, 'profile.html', {"user": user,
-                                            "bugs": bugs,
-                                            "features": features,
-    })
+    if request.user.is_authenticated:
+        user = User.objects.get(email=request.user.email)
+        bugs = Bug.objects.filter(user=user)
+        features = Feature.objects.filter(user=user)
+        return render(request, 'profile.html', {"user": user,
+                                                "bugs": bugs,
+                                                "features": features,
+        })
+    else:
+        return redirect(reverse('login'))
