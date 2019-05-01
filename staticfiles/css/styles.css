@@ -33,6 +33,10 @@ nav i {
 
 /*-- Special Styles --*/
 
+.alert {
+  margin: 0 !important;
+}
+
 .btn-primary {
   background-color: #CF5386;
   border-color: #CF5386;
