@@ -279,6 +279,17 @@ To deploy this application with Heroku, I completed the following steps:
 
 In the development version, Debug is set to True and the env.py file is imported into settings.py. However, in the deployed version, Debug is set to False and env.py is commented out. Also, the env.py file is not pushed to GitHub or Heroku as this contains keys which need to remain hidden from other users. The deployed version uses Heroku's PostgreSQL database whereas the development version uses SQLite. 
 
+#### UPDATE 01/05/19
+
+Since submitting this project, I have decided to resubmit it in order to fix a few important bugs outlined by the assessor. 
+
+ - I have corrected an error thrown when a user attempts to add 0 items to their cart - I have set the default quantity to 1 and changed the button so that it directs the user to the cart when 'Upvote' is clicked, rather than choosing a quantity and then being taken to the cart. 
+ - I have replaced the majority of pixels (above 10px) with rem/em for best practice purposes.
+ - I have removed a print statement within checkout/views.py for production mode.
+ - I have improved the styling of the payment error message and made it easier for a user to see when they have made a mistake in the payment form.
+ - I have fixed an error thrown when a user attempts to access a profile without being logged in, e.g. when user adds /accounts/profile to the url. This now redirects them to the login page. 
+ - I have implemented a fixed navbar allowing easier navigation throughout the application. 
+
 Deployed version [here](https://us-issue-tracker.herokuapp.com/).
 
 ## Credits
